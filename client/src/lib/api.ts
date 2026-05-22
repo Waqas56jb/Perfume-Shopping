@@ -4,7 +4,9 @@
 
 import type { Product, QuickReply } from '../types/chat';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// Default to the deployed backend. For local dev, override in client/.env.local
+// with: VITE_API_URL=http://localhost:3001
+const API_BASE = import.meta.env.VITE_API_URL || 'https://perfume-shopping-backend.vercel.app';
 const SESSION_STORAGE_KEY = 'eleganza-chat-session';
 
 export interface ChatApiResponse {

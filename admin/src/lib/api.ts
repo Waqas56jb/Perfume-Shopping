@@ -3,7 +3,9 @@
  *  Attaches the bearer token, parses JSON, throws ApiError on non-2xx.
  * ───────────────────────────────────────────────────────────────────────── */
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// Default to the deployed backend. For local dev, override in admin/.env.local
+// with: VITE_API_URL=http://localhost:3001
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://perfume-shopping-backend.vercel.app';
 const TOKEN_KEY = 'eleganza-admin-token';
 
 export class ApiError extends Error {
