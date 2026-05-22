@@ -98,6 +98,15 @@ function buildReplyTool(productIdEnum) {
           },
           capture_lead: { type: 'boolean' },
           escalate_to_human: { type: 'boolean' },
+          /* Customer-detail extraction — whenever the customer reveals
+             any of these in their messages, copy the value here so the
+             server can persist it to chat_leads and the admin can ship
+             the parcel without ever leaving the panel. */
+          customer_name:    { type: 'string', description: 'First name or full name the customer just provided. Omit if not mentioned.' },
+          customer_email:   { type: 'string', description: 'Email address the customer provided.' },
+          customer_phone:   { type: 'string', description: 'Phone number the customer provided.' },
+          customer_address: { type: 'string', description: 'Shipping address the customer provided.' },
+          order_intent:     { type: 'boolean', description: 'True when the customer confirms they want to order.' },
         },
         required: ['reply', 'intent'],
       },
@@ -227,6 +236,11 @@ function parseToolCall(toolCalls) {
 
 function normalizeReply(raw) {
   const safeArr = (v) => (Array.isArray(v) ? v : []);
+  const cleanStr = (v, max = 200) => {
+    if (typeof v !== 'string') return null;
+    const s = v.trim();
+    return s.length > 0 ? s.slice(0, max) : null;
+  };
   return {
     reply: typeof raw?.reply === 'string' ? raw.reply.trim() : '',
     intent: typeof raw?.intent === 'string' ? raw.intent : 'smalltalk',
@@ -240,6 +254,11 @@ function normalizeReply(raw) {
       .filter((q) => q.label && q.value),
     capture_lead: Boolean(raw?.capture_lead),
     escalate_to_human: Boolean(raw?.escalate_to_human),
+    customer_name:    cleanStr(raw?.customer_name, 80),
+    customer_email:   cleanStr(raw?.customer_email, 120),
+    customer_phone:   cleanStr(raw?.customer_phone, 30),
+    customer_address: cleanStr(raw?.customer_address, 240),
+    order_intent:     Boolean(raw?.order_intent),
   };
 }
 
@@ -352,7 +371,45 @@ app.post('/api/chat', async (req, res) => {
     /* Persist turn — in-memory + DB */
     appendMessage(session.id, { role: 'user', content: message });
     appendMessage(session.id, { role: 'assistant', content: cleanReply });
-    if (normalized.capture_lead) markLeadCaptured(session.id, {});
+
+    /* Auto-capture extracted customer details — agent fills in
+       customer_email / name / phone / address whenever the user types them.
+       Any of these turns the session into a lead the admin can act on. */
+    const hasAnyCustomerDetail =
+      normalized.customer_email ||
+      normalized.customer_name ||
+      normalized.customer_phone ||
+      normalized.customer_address;
+
+    if (hasAnyCustomerDetail || normalized.capture_lead) {
+      const leadPayload = {
+        email: normalized.customer_email,
+        name: normalized.customer_name,
+        phone: normalized.customer_phone,
+      };
+      markLeadCaptured(session.id, leadPayload);
+      if (session.dbId) {
+        try {
+          await dbMarkLead(session.dbId, leadPayload);
+          if (normalized.customer_email) {
+            await dbCaptureLead({
+              sessionId: session.dbId,
+              email: normalized.customer_email,
+              name: normalized.customer_name || null,
+              phone: normalized.customer_phone || null,
+              source: 'chatbot',
+              notes: [
+                normalized.customer_address ? `Adresse: ${normalized.customer_address}` : null,
+                normalized.order_intent ? 'Intention de commande confirmée.' : null,
+                normalized.product_ids.length ? `Intéressé(e) par: ${normalized.product_ids.join(', ')}` : null,
+              ].filter(Boolean).join(' · ') || null,
+            });
+          }
+        } catch (err) {
+          console.warn('DB lead capture (auto) failed:', err.message);
+        }
+      }
+    }
     if (normalized.escalate_to_human) markEscalated(session.id, normalized.intent);
 
     if (session.dbId) {

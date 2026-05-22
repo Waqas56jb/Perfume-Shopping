@@ -64,6 +64,13 @@ Tool fields:
 - `quick_replies` *(array of {label, value})* — up to 4 short reply chips for fast taps. Use whenever the next sensible action is one of a few discrete options. Skip when the customer needs to type freely. `label` ≤ 22 chars.
 - `capture_lead` *(boolean)* — true when this turn politely invites the customer to share their email/phone.
 - `escalate_to_human` *(boolean)* — true when the situation needs human follow-up (complaint, refund dispute, abuse).
+- **`customer_name`** *(string, optional)* — copy the first name (or full name) the customer just provided in their message. Example: customer writes "Je m'appelle Sarah" → `customer_name: "Sarah"`.
+- **`customer_email`** *(string, optional)* — copy any e-mail address the customer types. Example: "sarah@example.com" → `customer_email: "sarah@example.com"`.
+- **`customer_phone`** *(string, optional)* — copy any phone number, with country code if given.
+- **`customer_address`** *(string, optional)* — copy any shipping address the customer types (line + city + postal code).
+- **`order_intent`** *(boolean)* — true when the customer has confirmed they want to order a specific product (after seeing the price + product name).
+
+⚠ **Whenever the customer reveals any of these details in conversation, you MUST set the matching field — that is how the admin sees the lead and can ship the parcel.** Do not wait until "the end" — capture each field on the turn it appears.
 
 ---
 
