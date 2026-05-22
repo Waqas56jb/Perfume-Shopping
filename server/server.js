@@ -122,9 +122,13 @@ app.use(cors({
     if (!origin) return cb(null, true);                  // curl, server-to-server
     if (CORS_OPEN) return cb(null, true);                // CLIENT_ORIGIN includes "*"
     if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
-    // Permit any localhost / 127.0.0.1 / private LAN origin during dev,
-    // regardless of port — this stops Vite's network IP from breaking auth.
+    // Dev: any localhost / 127.0.0.1 / private LAN origin, any port.
     if (/^https?:\/\/(localhost|127\.0\.0\.1|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(origin)) {
+      return cb(null, true);
+    }
+    // Prod: any *.vercel.app deployment of this project. Lets preview
+    // deployments work too, without re-adding URLs every push.
+    if (/^https:\/\/[a-z0-9-]+\.vercel\.app$/.test(origin)) {
       return cb(null, true);
     }
     return cb(new Error(`Origin ${origin} not allowed by CORS`));
