@@ -13,7 +13,7 @@ import {
   getRedactionEvents,
 } from '../repositories/statsRepo.js';
 import { listRecentConversations } from '../repositories/chatRepo.js';
-import { listLeads, updateLeadStatus, LEAD_STATUSES } from '../repositories/leadRepo.js';
+import { listLeads, updateLeadStatus, LEAD_STATUSES, getLeadById } from '../repositories/leadRepo.js';
 import {
   listProducts,
   listDupeMappings,
@@ -22,6 +22,7 @@ import {
   updateProduct,
   deleteProduct,
   getProductBySlug,
+  getProductsBySlugs,
 } from '../repositories/productRepo.js';
 import {
   getMaskedSettings,
@@ -186,6 +187,21 @@ adminDataRouter.get('/leads/export.csv', async (_req, res) => {
     res.setHeader('Content-Disposition', 'attachment; filename="eleganza-leads.csv"');
     res.send(csv);
   } catch (err) { res.status(500).json({ error: 'internal_error', message: err.message }); }
+});
+
+adminDataRouter.get('/leads/:id', async (req, res) => {
+  try {
+    const lead = await getLeadById(req.params.id);
+    if (!lead) return res.status(404).json({ error: 'not_found' });
+
+    let products = [];
+    if (Array.isArray(lead.product_ids) && lead.product_ids.length > 0) {
+      products = await getProductsBySlugs(lead.product_ids);
+    }
+    res.json({ lead, products });
+  } catch (err) {
+    res.status(500).json({ error: 'internal_error', message: err.message });
+  }
 });
 
 adminDataRouter.patch('/leads/:id/status', async (req, res) => {
