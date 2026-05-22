@@ -1,12 +1,12 @@
-import { useState, type FormEvent } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState, type FormEvent } from 'react';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Mail, ArrowRight } from 'lucide-react';
 import { AuthLayout } from '../components/AuthLayout';
 import { Input } from '../components/ui/Input';
 import { PasswordInput } from '../components/ui/PasswordInput';
 import { Button } from '../components/ui/Button';
 import { Alert } from '../components/ui/Alert';
-import { login, AuthError } from '../lib/auth';
+import { login, AuthError, isAuthenticated } from '../lib/auth';
 import { validateEmail, validatePassword } from '../lib/validation';
 import type { FormErrors, LoginRequest } from '../types/auth';
 
@@ -14,6 +14,19 @@ export function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation() as { state?: { from?: string } };
   const redirectTo = location.state?.from || '/';
+
+  // Returning user with a valid session? Send them straight to the app.
+  // (AuthBootstrap has already validated/cleared the token by the time
+  //  this component mounts, so this check is reliable.)
+  const [authedOnMount] = useState(() => isAuthenticated());
+  useEffect(() => {
+    if (authedOnMount) navigate(redirectTo, { replace: true });
+    // We only want to evaluate this on mount; ignore subsequent changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  if (authedOnMount) {
+    return <Navigate to={redirectTo} replace />;
+  }
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
