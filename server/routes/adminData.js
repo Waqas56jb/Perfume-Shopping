@@ -13,7 +13,7 @@ import {
   getRedactionEvents,
 } from '../repositories/statsRepo.js';
 import { listRecentConversations } from '../repositories/chatRepo.js';
-import { listLeads } from '../repositories/leadRepo.js';
+import { listLeads, updateLeadStatus, LEAD_STATUSES } from '../repositories/leadRepo.js';
 import {
   listProducts,
   listDupeMappings,
@@ -175,9 +175,10 @@ adminDataRouter.get('/leads', async (req, res) => {
 adminDataRouter.get('/leads/export.csv', async (_req, res) => {
   try {
     const items = await listLeads({ limit: 5000, offset: 0 });
-    const headers = ['email','name','phone','source','marketing_opt_in','created_at'];
+    const headers = ['email','name','phone','status','product_names','total_amount','currency','address','source','created_at'];
     const rows = items.map((l) => headers.map((h) => {
-      const v = l[h] ?? '';
+      const raw = l[h];
+      const v = Array.isArray(raw) ? raw.join(' | ') : raw ?? '';
       return /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g,'""')}"` : String(v);
     }).join(','));
     const csv = [headers.join(','), ...rows].join('\n');
@@ -185,6 +186,22 @@ adminDataRouter.get('/leads/export.csv', async (_req, res) => {
     res.setHeader('Content-Disposition', 'attachment; filename="eleganza-leads.csv"');
     res.send(csv);
   } catch (err) { res.status(500).json({ error: 'internal_error', message: err.message }); }
+});
+
+adminDataRouter.patch('/leads/:id/status', async (req, res) => {
+  try {
+    const { status } = req.body || {};
+    if (!status || !LEAD_STATUSES.includes(status)) {
+      return res.status(400).json({
+        error: 'bad_request',
+        message: `Statut invalide. Valeurs autorisées : ${LEAD_STATUSES.join(', ')}`,
+      });
+    }
+    const updated = await updateLeadStatus(req.params.id, status);
+    res.json({ lead: updated });
+  } catch (err) {
+    res.status(500).json({ error: 'internal_error', message: err.message });
+  }
 });
 
 /* ════════════════ CATALOG — full CRUD ════════════════ */

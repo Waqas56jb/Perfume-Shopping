@@ -396,14 +396,21 @@ app.post('/api/chat', async (req, res) => {
         try {
           await dbMarkLead(session.dbId, leadPayload);
           if (normalized.customer_email) {
+            // Build product summary from hydrated catalog rows of this turn
+            const productNames = products.map((p) => p.name);
+            const totalAmount = products.reduce((sum, p) => sum + (Number(p.price) || 0), 0);
             await dbCaptureLead({
               sessionId: session.dbId,
               email: normalized.customer_email,
               name: normalized.customer_name || null,
               phone: normalized.customer_phone || null,
+              address: normalized.customer_address || null,
+              productIds: normalized.product_ids,
+              productNames,
+              totalAmount: products.length > 0 ? totalAmount : null,
+              currency: 'USD',
               source: 'chatbot',
               notes: [
-                normalized.customer_address ? `Adresse: ${normalized.customer_address}` : null,
                 normalized.order_intent ? 'Intention de commande confirmée.' : null,
                 normalized.product_ids.length ? `Intéressé(e) par: ${normalized.product_ids.join(', ')}` : null,
               ].filter(Boolean).join(' · ') || null,
