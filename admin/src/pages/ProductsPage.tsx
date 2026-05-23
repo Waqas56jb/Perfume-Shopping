@@ -149,6 +149,36 @@ export function ProductsPage() {
     }
   };
 
+  /** Called by the PhotoUploader when the user tries to add a photo on a
+   *  brand-new (unsaved) product. We auto-create the product so the
+   *  upload has a real slug to target. Once created, the drawer
+   *  switches to "edit" mode for the same product. */
+  const ensureSlugBeforeUpload = async (): Promise<string | null> => {
+    if (!editing) return null;
+    if (editing.slug) return editing.slug; // already saved — nothing to do
+    if (!editing.name || !editing.name.trim()) {
+      setError("Veuillez d'abord saisir le nom du parfum.");
+      return null;
+    }
+    setError(null);
+    try {
+      const res = await apiRequest<{ product: Product }>('/api/admin/products', {
+        method: 'POST',
+        body: editing,
+      });
+      // Switch the form into "edit mode" of the newly-created product so
+      // subsequent saves PATCH instead of POSTing duplicates.
+      setEditing(res.product);
+      setSuccess(`« ${res.product.name } » créé. Vous pouvez maintenant ajouter ses photos.`);
+      // Refresh the catalog list in the background so the new card appears.
+      load().catch(() => {});
+      return res.product.slug;
+    } catch (err) {
+      setError((err as Error).message);
+      return null;
+    }
+  };
+
   const handleDelete = async () => {
     if (!confirmDelete) return;
     setDeleting(true);
@@ -255,7 +285,14 @@ export function ProductsPage() {
           </>
         }
       >
-        {editing && <ProductForm value={editing} onChange={setEditing} onSubmit={handleSubmit} />}
+        {editing && (
+          <ProductForm
+            value={editing}
+            onChange={setEditing}
+            onSubmit={handleSubmit}
+            onEnsureSlug={ensureSlugBeforeUpload}
+          />
+        )}
       </Drawer>
 
       <ConfirmDialog
@@ -349,9 +386,11 @@ interface ProductFormProps {
   value: Partial<Product>;
   onChange: (next: Partial<Product>) => void;
   onSubmit: (e: FormEvent) => void;
+  /** Auto-creates the product when an upload is attempted before save. */
+  onEnsureSlug?: () => Promise<string | null>;
 }
 
-function ProductForm({ value, onChange, onSubmit }: ProductFormProps) {
+function ProductForm({ value, onChange, onSubmit, onEnsureSlug }: ProductFormProps) {
   const set = (patch: Partial<Product>) => onChange({ ...value, ...patch });
 
   return (
@@ -479,6 +518,7 @@ function ProductForm({ value, onChange, onSubmit }: ProductFormProps) {
           slug={value.slug || null}
           urls={value.image_urls || []}
           onChange={(image_urls) => set({ image_urls })}
+          onEnsureSlug={onEnsureSlug}
         />
       </Section>
     </form>

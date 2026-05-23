@@ -16,6 +16,54 @@ const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/av
 
 export { BUCKET as PRODUCT_PHOTOS_BUCKET, MAX_PHOTOS_PER_PRODUCT, ALLOWED_MIME };
 
+/* ─── Auto-create the bucket the first time we need it ──────────────────
+ * The service-role key has permission to create buckets, so no manual
+ * dashboard work is required. Result is cached in-process. */
+let bucketReady = false;
+let bucketCheckInFlight = null;
+
+export async function ensureBucket() {
+  if (bucketReady) return;
+  if (bucketCheckInFlight) return bucketCheckInFlight;
+
+  bucketCheckInFlight = (async () => {
+    // 1. Try to GET the bucket — fastest path when it already exists.
+    try {
+      const { data, error } = await supabase.storage.getBucket(BUCKET);
+      if (data && !error) {
+        // If it exists but isn't public, try to flip it public (best-effort).
+        if (data.public === false) {
+          await supabase.storage.updateBucket(BUCKET, { public: true }).catch(() => {});
+        }
+        bucketReady = true;
+        return;
+      }
+    } catch { /* fall through to create */ }
+
+    // 2. Create the bucket (public + same MIME allow-list as the route).
+    const { error: createErr } = await supabase.storage.createBucket(BUCKET, {
+      public: true,
+      fileSizeLimit: 5 * 1024 * 1024,
+      allowedMimeTypes: [...ALLOWED_MIME],
+    });
+
+    if (createErr && !/already exists/i.test(String(createErr.message || ''))) {
+      // Wipe the cache so a follow-up upload retries the check.
+      bucketCheckInFlight = null;
+      throw new Error(
+        `Impossible de créer le bucket "${BUCKET}" automatiquement. Vérifiez que la clé SUPABASE_SERVICE_ROLE_KEY a les droits Storage. Message Supabase: ${createErr.message}`
+      );
+    }
+    bucketReady = true;
+  })();
+
+  try {
+    await bucketCheckInFlight;
+  } finally {
+    if (bucketReady) bucketCheckInFlight = null;
+  }
+}
+
 function extFromMime(mime) {
   switch (mime) {
     case 'image/jpeg': return 'jpg';
@@ -31,19 +79,26 @@ export async function uploadProductPhoto({ slug, buffer, mimeType }) {
   if (!ALLOWED_MIME.has(mimeType)) {
     throw new Error(`Format non supporté (${mimeType}). Utilisez JPG, PNG, WEBP ou AVIF.`);
   }
+  await ensureBucket(); // ← creates the bucket on first use
+
   const ext = extFromMime(mimeType);
   const id = crypto.randomBytes(6).toString('hex');
   const path = `${slug}/${Date.now()}-${id}.${ext}`;
 
-  const { error } = await supabase.storage
+  let { error } = await supabase.storage
     .from(BUCKET)
     .upload(path, buffer, { contentType: mimeType, upsert: false });
-  if (error) {
-    if (String(error.message).match(/bucket.+not found/i)) {
-      throw new Error(`Le bucket "${BUCKET}" n'existe pas. Créez-le dans Supabase Storage (public).`);
-    }
-    throw error;
+
+  // One automatic retry if Supabase complained the bucket was missing.
+  if (error && String(error.message || '').match(/bucket.+not found/i)) {
+    bucketReady = false;
+    await ensureBucket();
+    ({ error } = await supabase.storage
+      .from(BUCKET)
+      .upload(path, buffer, { contentType: mimeType, upsert: false }));
   }
+
+  if (error) throw error;
 
   const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
   return { path, publicUrl: data.publicUrl };

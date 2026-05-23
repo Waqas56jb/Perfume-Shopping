@@ -3,8 +3,7 @@ import { ImagePlus, Loader2, Trash2, ImageOff } from 'lucide-react';
 import { apiRequest, apiUploadFile, ApiError } from '../lib/api';
 
 interface PhotoUploaderProps {
-  /** product slug — if null/empty (new product, not yet saved), the uploader
-   *  is disabled and shows a hint to save first. */
+  /** product slug — null/empty for a brand-new card not yet saved. */
   slug?: string | null;
   /** Current image URLs (max 4). */
   urls: string[];
@@ -12,6 +11,11 @@ interface PhotoUploaderProps {
   onChange: (next: string[]) => void;
   /** Max photos (default 4). */
   max?: number;
+  /** Optional callback invoked when an upload is attempted but no slug
+   *  exists yet (i.e. brand-new product). Should save the product on
+   *  the server and return the new slug. If it returns null, the
+   *  uploader aborts and surfaces an error message. */
+  onEnsureSlug?: () => Promise<string | null>;
 }
 
 /**
@@ -19,29 +23,57 @@ interface PhotoUploaderProps {
  * - Each slot either renders a preview (with a delete button) or a "+" upload tile.
  * - Disabled until the product is saved (a slug exists).
  */
-export function PhotoUploader({ slug, urls, onChange, max = 4 }: PhotoUploaderProps) {
+export function PhotoUploader({ slug, urls, onChange, max = 4, onEnsureSlug }: PhotoUploaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploadingIndex, setUploadingIndex] = useState<number | null>(null);
   const [deletingIndex, setDeletingIndex] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  /** Once a file is picked we resolve the slug (possibly creating the
+   *  product first) and keep it here for the upload step. */
+  const pendingSlugRef = useRef<string | null>(slug || null);
+
+  // Keep the ref in sync with the prop so subsequent uploads use the latest.
+  if (slug && pendingSlugRef.current !== slug) {
+    pendingSlugRef.current = slug;
+  }
 
   const slots = Array.from({ length: max }, (_, i) => urls[i] || null);
-  const enabled = Boolean(slug);
+  const canTriggerUpload = Boolean(slug || onEnsureSlug);
 
   const handlePick = (slotIndex: number) => {
-    if (!enabled || uploadingIndex !== null) return;
+    if (!canTriggerUpload || uploadingIndex !== null) return;
     setUploadingIndex(slotIndex);
+    setError(null);
     inputRef.current?.click();
   };
 
   const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    e.target.value = ''; // reset so picking the same file again still triggers change
-    if (!file || !slug) { setUploadingIndex(null); return; }
-    setError(null);
+    e.target.value = '';
+    if (!file) { setUploadingIndex(null); return; }
+
+    // Resolve the slug — either we have one, or we ask the parent to save
+    // the product first and give us the freshly created slug.
+    let effectiveSlug = slug || pendingSlugRef.current;
+    if (!effectiveSlug && onEnsureSlug) {
+      try {
+        effectiveSlug = await onEnsureSlug();
+      } catch (err) {
+        setError((err as Error).message);
+        setUploadingIndex(null);
+        return;
+      }
+    }
+    if (!effectiveSlug) {
+      setError("Veuillez d'abord saisir le nom du parfum.");
+      setUploadingIndex(null);
+      return;
+    }
+    pendingSlugRef.current = effectiveSlug;
+
     try {
       const { product } = await apiUploadFile<{ product: { image_urls: string[] } }>(
-        `/api/admin/products/${slug}/photos`,
+        `/api/admin/products/${effectiveSlug}/photos`,
         file,
       );
       onChange(product.image_urls || []);
@@ -54,7 +86,7 @@ export function PhotoUploader({ slug, urls, onChange, max = 4 }: PhotoUploaderPr
   };
 
   const handleDelete = async (index: number) => {
-    if (!enabled) return;
+    if (!slug) return;
     if (!confirm('Supprimer cette photo ?')) return;
     setDeletingIndex(index);
     setError(null);
@@ -80,9 +112,14 @@ export function PhotoUploader({ slug, urls, onChange, max = 4 }: PhotoUploaderPr
         <span className="text-[11px] text-neutral-400">{urls.length} / {max}</span>
       </div>
 
-      {!enabled && (
+      {!slug && !onEnsureSlug && (
         <p className="text-[11.5px] text-neutral-400 italic">
           Enregistrez d'abord le parfum pour pouvoir téléverser ses photos.
+        </p>
+      )}
+      {!slug && onEnsureSlug && (
+        <p className="text-[11.5px] text-neutral-400 italic">
+          Saisissez le <strong>nom</strong> du parfum, puis cliquez « Ajouter » — le parfum sera créé automatiquement avant l'envoi de la photo.
         </p>
       )}
 
@@ -117,7 +154,7 @@ export function PhotoUploader({ slug, urls, onChange, max = 4 }: PhotoUploaderPr
                 <button
                   type="button"
                   onClick={() => handleDelete(idx)}
-                  disabled={isDeleting || !enabled}
+                  disabled={isDeleting || !slug}
                   aria-label="Supprimer cette photo"
                   className="absolute top-2 right-2 w-8 h-8 rounded-md bg-black/70 text-white opacity-0 group-hover:opacity-100 focus-visible:opacity-100 hover:bg-black/90 disabled:opacity-100 disabled:bg-black/60 transition-opacity flex items-center justify-center"
                 >
@@ -141,7 +178,7 @@ export function PhotoUploader({ slug, urls, onChange, max = 4 }: PhotoUploaderPr
               key={idx}
               type="button"
               onClick={() => handlePick(idx)}
-              disabled={!enabled || uploadingIndex !== null}
+              disabled={!canTriggerUpload || uploadingIndex !== null}
               className="
                 group aspect-square rounded-lg border-2 border-dashed
                 border-neutral-300 hover:border-neutral-900
@@ -157,7 +194,7 @@ export function PhotoUploader({ slug, urls, onChange, max = 4 }: PhotoUploaderPr
                   <Loader2 size={20} strokeWidth={1.6} className="animate-spin text-neutral-500" />
                   <span className="text-[10.5px] uppercase tracking-wider">Envoi…</span>
                 </>
-              ) : enabled ? (
+              ) : canTriggerUpload ? (
                 <>
                   <ImagePlus size={20} strokeWidth={1.4} />
                   <span className="text-[10.5px] uppercase tracking-wider">Ajouter</span>
