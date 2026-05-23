@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import type { Product } from '../types/chat';
@@ -5,6 +6,49 @@ import type { Product } from '../types/chat';
 interface ProductCardProps {
   product: Product;
   index?: number;
+}
+
+/** Renders the first real photo with a graceful fallback if it errors. */
+function RealPhoto({ urls, alt }: { urls: string[]; alt: string }) {
+  const [index, setIndex] = useState(0);
+  const [failed, setFailed] = useState(false);
+
+  if (failed || !urls[index]) {
+    return <PerfumeBottle name={alt} />;
+  }
+
+  return (
+    <div className="relative w-full aspect-[4/5] bg-cream-50 overflow-hidden">
+      <img
+        src={urls[index]}
+        alt={alt}
+        loading="lazy"
+        className="w-full h-full object-cover transition-opacity duration-300"
+        onError={() => setFailed(true)}
+      />
+      {/* Subtle gradient overlay so caps + badges read on any background */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/15"
+      />
+      {urls.length > 1 && (
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+          {urls.slice(0, 4).map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Photo ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={[
+                'w-1.5 h-1.5 rounded-full transition-colors',
+                i === index ? 'bg-ink-900' : 'bg-ink-900/30 hover:bg-ink-900/60',
+              ].join(' ')}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function PerfumeBottle({ name }: { name: string }) {
@@ -105,7 +149,11 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="flex-shrink-0 w-[230px] sm:w-[250px] bg-cream-50 rounded-2xl overflow-hidden shadow-card hover:shadow-soft transition-shadow group"
     >
       <div className="relative">
-        <PerfumeBottle name={product.name} />
+        {product.imageUrls && product.imageUrls.length > 0 ? (
+          <RealPhoto urls={product.imageUrls} alt={product.name} />
+        ) : (
+          <PerfumeBottle name={product.name} />
+        )}
         {product.oldPrice && (
           <span className="absolute top-3 left-3 px-2.5 py-1 bg-ink-900 text-cream-100 text-[10px] uppercase tracking-elegant rounded-full">
             Promotion

@@ -30,8 +30,13 @@ export interface Product {
   longevity: number;
   price: number;
   oldPrice?: number;
+  currency?: string;
   inStock: boolean;
   url: string;
+  /** Real bottle photos uploaded via the admin panel. First one is the
+   *  primary image; if the array is empty the chatbot falls back to the
+   *  default SVG bottle illustration. */
+  imageUrls?: string[];
 }
 
 export interface ChatMessage {

@@ -219,8 +219,12 @@ async function hydrateProducts(ids) {
         longevity: p.longevity || 4,
         price: Number(p.price) || 0,
         oldPrice: p.old_price ? Number(p.old_price) : undefined,
+        currency: p.currency || 'EUR',
         inStock: p.in_stock,
         url: p.url || '#',
+        imageUrls: Array.isArray(p.image_urls) && p.image_urls.length > 0
+          ? p.image_urls
+          : (p.image_url ? [p.image_url] : []),
       });
       continue;
     }

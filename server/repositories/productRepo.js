@@ -80,8 +80,50 @@ export function normalizeProductPayload(p, { isUpdate = false } = {}) {
   if (p.is_new !== undefined) out.is_new = Boolean(p.is_new);
   if (p.url !== undefined) out.url = p.url || null;
   if (p.image_url !== undefined) out.image_url = p.image_url || null;
+  if (p.image_urls !== undefined) {
+    out.image_urls = Array.isArray(p.image_urls) ? p.image_urls.slice(0, 4) : [];
+  }
   if (p.sort_order !== undefined) out.sort_order = Number(p.sort_order) || 0;
   return out;
+}
+
+/** Append a photo URL (capped at MAX_PHOTOS). Returns the updated row. */
+export async function addProductPhoto(slug, url, max = 4) {
+  const product = await getProductBySlug(slug);
+  if (!product) throw new Error(`Produit "${slug}" introuvable.`);
+  const current = Array.isArray(product.image_urls) ? product.image_urls : [];
+  if (current.length >= max) {
+    throw new Error(`Limite atteinte : maximum ${max} photos par parfum.`);
+  }
+  const next = [...current, url];
+  const { data, error } = await supabase
+    .from('products')
+    .update({ image_urls: next })
+    .eq('slug', slug)
+    .select()
+    .single();
+  throwIfError(error, 'addProductPhoto');
+  return data;
+}
+
+/** Remove a photo at a given index. Returns the updated row + removed url. */
+export async function removeProductPhoto(slug, index) {
+  const product = await getProductBySlug(slug);
+  if (!product) throw new Error(`Produit "${slug}" introuvable.`);
+  const current = Array.isArray(product.image_urls) ? product.image_urls : [];
+  if (index < 0 || index >= current.length) {
+    throw new Error('Index de photo invalide.');
+  }
+  const removed = current[index];
+  const next = current.filter((_, i) => i !== index);
+  const { data, error } = await supabase
+    .from('products')
+    .update({ image_urls: next })
+    .eq('slug', slug)
+    .select()
+    .single();
+  throwIfError(error, 'removeProductPhoto');
+  return { product: data, removedUrl: removed };
 }
 
 function clamp(v, lo, hi) {

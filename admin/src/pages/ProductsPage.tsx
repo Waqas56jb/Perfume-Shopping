@@ -1,7 +1,8 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import {
-  Boxes, ExternalLink, Search, Plus, Pencil, Trash2, Star, Sparkles, Package,
+  Boxes, ExternalLink, Search, Plus, Pencil, Trash2, Star, Sparkles, Package, ImagePlus,
 } from 'lucide-react';
+import { PhotoUploader } from '../components/PhotoUploader';
 import { PageHeader } from '../components/PageHeader';
 import { FullPageSpinner } from '../components/Spinner';
 import { EmptyState } from '../components/EmptyState';
@@ -36,6 +37,7 @@ interface Product {
   is_new: boolean;
   url: string | null;
   image_url: string | null;
+  image_urls: string[];
   sort_order: number;
 }
 
@@ -61,6 +63,7 @@ const blankProduct: Partial<Product> = {
   in_stock: true,
   is_bestseller: false,
   is_new: false,
+  image_urls: [],
   url: '',
 };
 
@@ -469,6 +472,14 @@ function ProductForm({ value, onChange, onSubmit }: ProductFormProps) {
           <Toggle label="Best-seller" checked={value.is_bestseller ?? false} onChange={(is_bestseller) => set({ is_bestseller })} />
           <Toggle label="Nouveauté" checked={value.is_new ?? false} onChange={(is_new) => set({ is_new })} />
         </div>
+      </Section>
+
+      <Section icon={<ImagePlus size={15} strokeWidth={1.8} />} title="Photos du flacon (optionnel)">
+        <PhotoUploader
+          slug={value.slug || null}
+          urls={value.image_urls || []}
+          onChange={(image_urls) => set({ image_urls })}
+        />
       </Section>
     </form>
   );

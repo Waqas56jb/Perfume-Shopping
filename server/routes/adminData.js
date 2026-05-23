@@ -23,7 +23,16 @@ import {
   deleteProduct,
   getProductBySlug,
   getProductsBySlugs,
+  addProductPhoto,
+  removeProductPhoto,
 } from '../repositories/productRepo.js';
+import {
+  uploadProductPhoto,
+  deleteProductPhoto,
+  MAX_PHOTOS_PER_PRODUCT,
+  ALLOWED_MIME,
+} from '../storage.js';
+import multer from 'multer';
 import {
   getMaskedSettings,
   setManySettings,
@@ -262,6 +271,52 @@ adminDataRouter.delete('/products/:slug', async (req, res) => {
   try {
     await deleteProduct(req.params.slug);
     res.json({ ok: true });
+  } catch (err) {
+    res.status(500).json({ error: 'internal_error', message: err?.message });
+  }
+});
+
+/* ── Product photos — Supabase Storage backed ────────────────────────── */
+const photoUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB per file
+  fileFilter: (_req, file, cb) => {
+    if (ALLOWED_MIME.has(file.mimetype)) return cb(null, true);
+    cb(new Error(`Format non supporté (${file.mimetype}). JPG / PNG / WEBP / AVIF uniquement.`));
+  },
+});
+
+adminDataRouter.post('/products/:slug/photos', (req, res, next) => {
+  photoUpload.single('photo')(req, res, (err) => {
+    if (err) return res.status(400).json({ error: 'upload_failed', message: err.message });
+    next();
+  });
+}, async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'bad_request', message: 'Aucun fichier reçu (champ "photo" requis).' });
+    }
+    const { publicUrl } = await uploadProductPhoto({
+      slug: req.params.slug,
+      buffer: req.file.buffer,
+      mimeType: req.file.mimetype,
+    });
+    const product = await addProductPhoto(req.params.slug, publicUrl, MAX_PHOTOS_PER_PRODUCT);
+    res.json({ product, uploadedUrl: publicUrl });
+  } catch (err) {
+    const msg = err?.message || 'internal_error';
+    const code = /Limite atteinte/.test(msg) ? 409 : 500;
+    res.status(code).json({ error: code === 409 ? 'max_photos' : 'internal_error', message: msg });
+  }
+});
+
+adminDataRouter.delete('/products/:slug/photos/:index', async (req, res) => {
+  try {
+    const idx = parseInt(req.params.index, 10);
+    const { product, removedUrl } = await removeProductPhoto(req.params.slug, idx);
+    // Best-effort delete from storage (don't fail the request if it errors)
+    if (removedUrl) await deleteProductPhoto(removedUrl).catch(() => {});
+    res.json({ product, removedUrl });
   } catch (err) {
     res.status(500).json({ error: 'internal_error', message: err?.message });
   }

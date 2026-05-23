@@ -81,6 +81,38 @@ export async function apiRequest<T = unknown>(path: string, opts: RequestOptions
   return payload as T;
 }
 
+/**
+ * Upload a single file via multipart/form-data.
+ * Pass the file under field name "photo" (or override with `field`).
+ */
+export async function apiUploadFile<T = unknown>(
+  path: string,
+  file: File,
+  { field = 'photo' }: { field?: string } = {},
+): Promise<T> {
+  const t = getToken();
+  const form = new FormData();
+  form.append(field, file);
+  const res = await fetch(`${BASE_URL}${path}`, {
+    method: 'POST',
+    headers: t ? { Authorization: `Bearer ${t}` } : {},
+    body: form,
+  });
+  let payload: unknown = null;
+  const text = await res.text();
+  if (text) {
+    try { payload = JSON.parse(text); } catch { payload = text; }
+  }
+  if (!res.ok) {
+    const message =
+      (payload as { message?: string })?.message ||
+      (payload as { error?: string })?.error ||
+      `Upload failed (HTTP ${res.status})`;
+    throw new ApiError(message, res.status, payload);
+  }
+  return payload as T;
+}
+
 /** Trigger a file download from an admin endpoint (e.g. CSV export). */
 export async function apiDownload(path: string, filename: string) {
   const t = getToken();
