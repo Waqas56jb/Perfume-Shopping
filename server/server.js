@@ -290,7 +290,7 @@ function fallbackReply() {
 app.post('/api/chat', async (req, res) => {
   const startedAt = Date.now();
   try {
-    const { sessionId: incomingId, message, language } = req.body || {};
+    const { sessionId: incomingId, message, language, seededAssistantMessage } = req.body || {};
     if (!message || typeof message !== 'string' || !message.trim()) {
       return res.status(400).json({ error: 'Missing or empty "message".' });
     }
@@ -302,6 +302,20 @@ app.post('/api/chat', async (req, res) => {
     const session = getOrCreateSession(incomingId, { language: language || detectLanguage(message) });
     const detected = detectLanguage(message);
     if (detected !== session.language) session.language = detected;
+
+    /* If the client rendered a static welcome before this turn, seed it
+       into the session history once so the LLM sees it as a prior
+       assistant turn and does NOT greet again. */
+    if (
+      seededAssistantMessage &&
+      typeof seededAssistantMessage === 'string' &&
+      session.messages.length === 0
+    ) {
+      appendMessage(session.id, {
+        role: 'assistant',
+        content: seededAssistantMessage.slice(0, 2000),
+      });
+    }
 
     /* Persist session to DB on first turn */
     if (!session.dbId) {

@@ -1,8 +1,13 @@
 /* ─────────────────────────────────────────────────────────────────────────
  *  useChat — hooks into the real backend.
- *  Each turn POSTs /api/chat and renders the LLM response (reply text,
- *  product carousel, quick-reply chips). No scripted fallbacks here —
- *  the agent in server/prompts/system.md drives every word.
+ *
+ *  UX rule: the welcome message renders STATICALLY (no API call) so the
+ *  customer never waits on the very first screen. The agent only takes
+ *  over from the customer's FIRST real message onwards.
+ *
+ *  When the customer sends that first real message, we also pass a
+ *  `seededAssistantMessage` to the backend so the LLM knows the welcome
+ *  was already shown and doesn't re-greet.
  * ───────────────────────────────────────────────────────────────────────── */
 
 import { useCallback, useRef, useState } from 'react';
@@ -18,7 +23,31 @@ import {
 let idCounter = 0;
 const nextId = () => `msg-${Date.now()}-${++idCounter}`;
 
-const WELCOME_TRIGGER = 'Bonjour';
+/* ─── Static welcome (no backend call, instant display) ───────────────── */
+const STATIC_WELCOME = `Bienvenue chez Eleganza. ✨
+
+Découvrez nos **Extraits de Parfum** (Haute Concentration : **25 % à 30 %**).
+
+🎁 **OFFRE DE LANCEMENT : 3 achetés + 1 OFFERT**
+🚚 **Livraison OFFERTE** sur ce pack (**59,70 € au lieu de 79,60 €**)`;
+
+const STATIC_QUICK_REPLIES: QuickReply[] = [
+  {
+    id: 'welcome-qr-pack',
+    label: '🛍️ Acheter le Pack 3+1 (Livraison Gratuite)',
+    value: 'Je voudrais profiter du Pack 3+1 avec la livraison gratuite.',
+  },
+  {
+    id: 'welcome-qr-inspiration',
+    label: '🔍 Trouver mon inspiration',
+    value: 'Aidez-moi à trouver mon inspiration olfactive.',
+  },
+  {
+    id: 'welcome-qr-pourquoi',
+    label: '💎 Pourquoi nos Extraits ?',
+    value: 'Pourquoi vos Extraits sont-ils différents ?',
+  },
+];
 
 export function useChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -27,6 +56,9 @@ export function useChat() {
   const [error, setError] = useState<string | null>(null);
   const sessionIdRef = useRef<string | null>(getStoredSessionId());
   const abortRef = useRef<AbortController | null>(null);
+  /* Tracks whether we still need to seed the backend with the static
+     welcome on the next API call. We seed exactly once per session. */
+  const needsSeedRef = useRef<boolean>(true);
 
   const pushMessage = useCallback((msg: Omit<ChatMessage, 'id' | 'timestamp'>) => {
     setMessages((prev) => [
@@ -44,8 +76,18 @@ export function useChat() {
     abortRef.current?.abort();
     abortRef.current = new AbortController();
 
+    // On the first real turn, send the static welcome so the bot sees it
+    // in its history and won't re-greet.
+    const seed = needsSeedRef.current ? STATIC_WELCOME : undefined;
+
     try {
-      const res = await sendChatMessage(userText, sessionIdRef.current, abortRef.current.signal);
+      const res = await sendChatMessage(
+        userText,
+        sessionIdRef.current,
+        abortRef.current.signal,
+        seed,
+      );
+      needsSeedRef.current = false;
 
       // Persist the session id so the next turn keeps context
       if (res.sessionId && res.sessionId !== sessionIdRef.current) {
@@ -53,17 +95,12 @@ export function useChat() {
         setStoredSessionId(res.sessionId);
       }
 
-      // Bot reply text
       if (res.reply) {
         pushMessage({ sender: 'bot', kind: 'text', text: res.reply });
       }
-
-      // Product carousel (if the agent recommended anything)
       if (res.products && res.products.length > 0) {
         pushMessage({ sender: 'bot', kind: 'product-carousel', products: res.products });
       }
-
-      // Quick-reply chips
       if (res.quickReplies && res.quickReplies.length > 0) {
         pushMessage({
           sender: 'bot',
@@ -87,12 +124,18 @@ export function useChat() {
     }
   }, [pushMessage]);
 
-  /* First contact — triggers a real "Bonjour" so the agent introduces itself. */
-  const startConversation = useCallback(async () => {
+  /* First contact — INSTANT static welcome. No backend call yet.
+     The agent only kicks in once the customer types/taps something. */
+  const startConversation = useCallback(() => {
     if (hasStarted) return;
     setHasStarted(true);
-    await callBackend(WELCOME_TRIGGER);
-  }, [hasStarted, callBackend]);
+    pushMessage({ sender: 'bot', kind: 'text', text: STATIC_WELCOME });
+    pushMessage({
+      sender: 'bot',
+      kind: 'quick-replies',
+      quickReplies: STATIC_QUICK_REPLIES,
+    });
+  }, [hasStarted, pushMessage]);
 
   const sendUserMessage = useCallback(async (text: string) => {
     if (!text.trim()) return;
@@ -108,6 +151,7 @@ export function useChat() {
     abortRef.current?.abort();
     clearStoredSessionId();
     sessionIdRef.current = null;
+    needsSeedRef.current = true;
     setMessages([]);
     setHasStarted(false);
     setError(null);

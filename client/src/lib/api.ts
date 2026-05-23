@@ -50,11 +50,20 @@ export async function sendChatMessage(
   message: string,
   sessionId?: string | null,
   signal?: AbortSignal,
+  /** On the very first turn, the client renders a static welcome and
+   *  passes it here so the backend prepends it to the LLM context. The
+   *  bot will then *not* greet again — it responds to the user's intent
+   *  directly. Pass undefined / null on subsequent turns. */
+  seededAssistantMessage?: string,
 ): Promise<ChatApiResponse> {
   const res = await fetch(`${API_BASE}/api/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ message, sessionId: sessionId || undefined }),
+    body: JSON.stringify({
+      message,
+      sessionId: sessionId || undefined,
+      seededAssistantMessage: seededAssistantMessage || undefined,
+    }),
     signal,
   });
 
