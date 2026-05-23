@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Eleganza">
+  <!-- Black tile so the white brand mark is visible on any browser tab background -->
+  <rect width="64" height="64" rx="10" fill="#000000"/>
+  <!-- Brand letter — serif, white -->
+  <text x="32" y="47" font-family="Georgia, 'Cormorant Garamond', 'Playfair Display', 'Times New Roman', serif"
+        font-size="42" font-weight="600" fill="#FFFFFF" text-anchor="middle">E</text>
+  <!-- Gold corner dot — luxury signature -->
+  <circle cx="55" cy="9" r="3.5" fill="#C9A96E"/>
+</svg>
