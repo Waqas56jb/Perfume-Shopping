@@ -81,7 +81,8 @@ function renderLiveCatalog(rows) {
     const notes = `Tête: ${(p.notes_tete || []).join(', ')} | Cœur: ${(p.notes_coeur || []).join(', ')} | Fond: ${(p.notes_fond || []).join(', ')}`;
     const stock = p.in_stock ? 'EN STOCK' : 'ÉPUISÉ — DO NOT RECOMMEND';
     const promo = p.old_price ? ` (PROMO -${Math.round(((p.old_price - p.price) / p.old_price) * 100)}%)` : '';
-    return `• id="${p.slug}" | ${p.name} (${p.gender}) — ${p.family || ''}\n   ${notes}\n   Prix: $${p.price}${promo} · ${stock}`;
+    const currency = (p.currency || 'EUR').toUpperCase() === 'EUR' ? '€' : '$';
+    return `• id="${p.slug}" | ${p.name} (${p.gender}) — ${p.family || ''}\n   ${notes}\n   Prix: ${p.price}${currency}${promo} · ${stock}`;
   });
   return [
     '',
