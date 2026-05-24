@@ -74,7 +74,7 @@ export function normalizeProductPayload(p, { isUpdate = false } = {}) {
   if (p.vibe !== undefined) out.vibe = p.vibe || null;
   if (p.price !== undefined) out.price = Number(p.price) || 0;
   if (p.old_price !== undefined) out.old_price = p.old_price ? Number(p.old_price) : null;
-  if (p.currency !== undefined) out.currency = p.currency || 'USD';
+  if (p.currency !== undefined) out.currency = p.currency || 'EUR';
   if (p.in_stock !== undefined) out.in_stock = Boolean(p.in_stock);
   if (p.is_bestseller !== undefined) out.is_bestseller = Boolean(p.is_bestseller);
   if (p.is_new !== undefined) out.is_new = Boolean(p.is_new);

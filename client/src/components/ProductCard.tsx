@@ -134,6 +134,24 @@ function PerfumeBottle({ name }: { name: string }) {
   );
 }
 
+/** Format a price in the product's own currency. Defaults to EUR (new
+ *  catalogue standard) so legacy rows without a currency field render
+ *  the right symbol. */
+function formatPrice(amount: number, currency: string | undefined): string {
+  const code = (currency || 'EUR').toUpperCase();
+  // Eleganza shows European format ("19,90 €"). Use fr-FR locale so the
+  // separator and trailing symbol match the rest of the site.
+  try {
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: code,
+      maximumFractionDigits: 2,
+    }).format(amount);
+  } catch {
+    return `${amount.toFixed(2)} ${code}`;
+  }
+}
+
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const allNotes = [
     ...product.notes.tete.slice(0, 2),
@@ -187,9 +205,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
 
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-baseline gap-1.5">
-            <span className="text-[15px] font-semibold text-ink-900">${product.price}</span>
+            <span className="text-[15px] font-semibold text-ink-900">{formatPrice(product.price, product.currency)}</span>
             {product.oldPrice && (
-              <span className="text-[11px] text-ink-200 line-through">${product.oldPrice}</span>
+              <span className="text-[11px] text-ink-200 line-through">{formatPrice(product.oldPrice, product.currency)}</span>
             )}
           </div>
           <a

@@ -19,7 +19,7 @@ alter table public.chat_leads
   add column if not exists product_ids text[] not null default '{}',
   add column if not exists product_names text[] not null default '{}',
   add column if not exists total_amount numeric(10, 2),
-  add column if not exists currency text default 'USD',
+  add column if not exists currency text default 'EUR',
   add column if not exists address text,
   add column if not exists updated_at timestamptz not null default now();
 

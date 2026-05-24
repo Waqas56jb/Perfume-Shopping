@@ -98,8 +98,15 @@ function renderLiveCatalog(rows) {
   ].join('\n');
 }
 
-function liveProductIds(rows) {
-  return (rows || []).filter((p) => p.in_stock).map((p) => p.slug);
+function liveProductIds(rows, requestedGender = null) {
+  return (rows || [])
+    .filter((p) => p.in_stock)
+    .filter((p) => {
+      if (!requestedGender) return true;
+      // Always allow unisex; otherwise must match the requested gender.
+      return p.gender === 'U' || p.gender === requestedGender;
+    })
+    .map((p) => p.slug);
 }
 
 export function invalidatePromptCache() {
@@ -110,6 +117,14 @@ export function invalidatePromptCache() {
 /**
  * Build the system message. Returns the prompt text PLUS the list of
  * currently in-stock product slugs (so the chat tool enum can be dynamic).
+ *
+ * `routing` can either be:
+ *   - a plain string  (legacy: the routed product slug)
+ *   - an object       { productId, productGender, requestedGender, genderConflict }
+ *
+ * When `requestedGender` is present, the product_ids tool enum is narrowed
+ * to same-gender + unisex products so the LLM literally cannot suggest a
+ * women's perfume to a male customer (and vice versa).
  */
 export async function buildSystemPrompt({ routedProductHint = null, customerLanguage = 'fr' } = {}) {
   const [dbRow, catalog] = await Promise.all([getDbPrompt(), getLiveCatalog()]);
@@ -118,7 +133,34 @@ export async function buildSystemPrompt({ routedProductHint = null, customerLang
   const appendix = dbRow?.appendix || fileCache.appendix;
   const today = new Date().toISOString().slice(0, 10);
 
+  // Normalise the routing payload — back-compat with the old string form.
+  const routing = (routedProductHint && typeof routedProductHint === 'object')
+    ? routedProductHint
+    : (routedProductHint ? { productId: routedProductHint, productGender: null, requestedGender: null, genderConflict: false } : null);
+
+  const requestedGender = routing?.requestedGender || null;
   const liveCatalogBlock = renderLiveCatalog(catalog);
+
+  const genderLabel = (g) => (g === 'H' ? 'HOMME (men only / unisex)' : g === 'F' ? 'FEMME (women only / unisex)' : 'mixte (any gender)');
+
+  const routingLines = [];
+  if (routing?.productId) {
+    routingLines.push(
+      `- 🔒 The customer's last message mentioned a forbidden brand or inspiration.\n  Silently route to product id \`${routing.productId}\` (gender: ${routing.productGender || 'U'}). Never speak the brand they mentioned. Pitch via olfactory notes only.`,
+    );
+  } else {
+    routingLines.push("- No forbidden brand detected in the customer's last message.");
+  }
+  if (requestedGender) {
+    routingLines.push(
+      `- 🎯 Customer is shopping for: ${genderLabel(requestedGender)}. ONLY recommend products with gender = ${requestedGender} or U (unisex). NEVER suggest a product whose gender is the opposite.`,
+    );
+  }
+  if (routing?.genderConflict && routing?.productId) {
+    routingLines.push(
+      `- ⚠ GENDER CONFLICT: the brand the customer mentioned maps to a product (\`${routing.productId}\`) whose gender (${routing.productGender}) does NOT match the requested gender (${requestedGender}). Pick a same-gender alternative from the LIVE CATALOG that shares the same olfactory family. Do NOT propose \`${routing.productId}\`.`,
+    );
+  }
 
   const contextBlock = [
     '',
@@ -129,9 +171,7 @@ export async function buildSystemPrompt({ routedProductHint = null, customerLang
     `- Customer language hint: ${customerLanguage}`,
     `- Prompt source: ${dbRow ? `DB v${dbRow.version}` : 'file (prompts/system.md)'}`,
     `- Live catalog: ${catalog.length} products from DB`,
-    routedProductHint
-      ? `- 🔒 The customer's last message mentioned a forbidden brand or inspiration.\n  Silently route to product id \`${routedProductHint}\`. Never speak the brand they mentioned. Pitch via olfactory notes only.`
-      : "- No forbidden brand detected in the customer's last message.",
+    ...routingLines,
     '',
   ].join('\n');
 
@@ -139,7 +179,8 @@ export async function buildSystemPrompt({ routedProductHint = null, customerLang
 
   return {
     prompt: fullPrompt,
-    productIds: liveProductIds(catalog),
+    productIds: liveProductIds(catalog, requestedGender),
+    requestedGender,
   };
 }
 

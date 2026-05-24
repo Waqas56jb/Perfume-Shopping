@@ -35,7 +35,7 @@ export async function captureLead({
     product_ids: Array.isArray(productIds) ? productIds : [],
     product_names: Array.isArray(productNames) ? productNames : [],
     total_amount: typeof totalAmount === 'number' && Number.isFinite(totalAmount) ? totalAmount : null,
-    currency: currency || 'USD',
+    currency: currency || 'EUR',
   };
 
   // We do NOT touch `status` on upsert — that's the admin's column.

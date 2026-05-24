@@ -133,7 +133,7 @@ create table public.products (
   vibe           text,
   price          numeric(10,2) not null,
   old_price      numeric(10,2),
-  currency       text not null default 'USD',
+  currency       text not null default 'EUR',
   in_stock       boolean not null default true,
   is_bestseller  boolean not null default false,
   is_new         boolean not null default false,

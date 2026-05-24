@@ -332,14 +332,18 @@ app.post('/api/chat', async (req, res) => {
       }
     }
 
-    /* Pre-LLM router */
-    const routedProductHint = detectMappedProduct(message);
+    /* Pre-LLM router — returns either null, or
+       { productId, productGender, requestedGender, genderConflict }. */
+    const routingInfo = detectMappedProduct(message);
     const detectedForbidden = findForbiddenTerm(message);
 
-    /* Build system prompt (DB > file) + live catalog */
+    /* Build system prompt (DB > file) + live catalog (narrowed to the
+       requested gender when the customer told us who it's for). */
     const { prompt: systemPrompt, productIds: liveProductIds } = await buildSystemPrompt({
-      routedProductHint, customerLanguage: session.language,
+      routedProductHint: routingInfo, customerLanguage: session.language,
     });
+    // Legacy short-hand kept for downstream logging.
+    const routedProductHint = routingInfo?.productId || null;
 
     const history = session.messages.map((m) => ({ role: m.role, content: m.content }));
     const messages = [
@@ -426,7 +430,7 @@ app.post('/api/chat', async (req, res) => {
               productIds: normalized.product_ids,
               productNames,
               totalAmount: products.length > 0 ? totalAmount : null,
-              currency: 'USD',
+              currency: 'EUR',
               source: 'chatbot',
               notes: [
                 normalized.order_intent ? 'Intention de commande confirmée.' : null,
@@ -477,6 +481,8 @@ app.post('/api/chat', async (req, res) => {
       escalateToHuman: normalized.escalate_to_human,
       meta: {
         routedFrom: routedProductHint || null,
+        requestedGender: routingInfo?.requestedGender || null,
+        genderConflict: routingInfo?.genderConflict || false,
         detectedForbidden, redacted,
         language: session.language,
         usage: completion.usage, model: modelUsed,
