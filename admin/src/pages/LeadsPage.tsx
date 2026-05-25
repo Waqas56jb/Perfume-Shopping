@@ -158,7 +158,7 @@ export function LeadsPage() {
 
   const fmtMoney = (n: number | null, ccy: string | null) =>
     n != null
-      ? new Intl.NumberFormat('fr-FR', { style: 'currency', currency: ccy || 'USD', maximumFractionDigits: 0 }).format(n)
+      ? new Intl.NumberFormat('fr-FR', { style: 'currency', currency: ccy || 'EUR', maximumFractionDigits: 2 }).format(n)
       : '—';
 
   return (

@@ -43,6 +43,22 @@ interface Product {
 
 const GENDER_LABEL: Record<string, string> = { F: 'Femme', H: 'Homme', U: 'Mixte' };
 
+/** Format a price in the row's own currency (default EUR). Uses fr-FR
+ *  locale so prices render as "19,90 €" — matches the live Eleganza shop. */
+function fmtPrice(amount: number | null | undefined, currency: string | null | undefined): string {
+  if (amount == null) return '—';
+  const code = (currency || 'EUR').toUpperCase();
+  try {
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: code,
+      maximumFractionDigits: 2,
+    }).format(amount);
+  } catch {
+    return `${Number(amount).toFixed(2)} ${code}`;
+  }
+}
+
 // Empty product template for "create" mode
 const blankProduct: Partial<Product> = {
   name: '',
@@ -58,7 +74,7 @@ const blankProduct: Partial<Product> = {
   longevity: 4,
   occasions: [],
   vibe: '',
-  price: 24,
+  price: 19.90,
   old_price: null,
   in_stock: true,
   is_bestseller: false,
@@ -333,8 +349,8 @@ function ProductCard({ product: p, onEdit, onDelete }: { product: Product; onEdi
           <p className="text-[11px] text-neutral-500">{p.family} · {GENDER_LABEL[p.gender]}</p>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="text-[16px] font-semibold text-black">${Number(p.price).toFixed(0)}</p>
-          {p.old_price && <p className="text-[10.5px] text-neutral-400 line-through">${Number(p.old_price).toFixed(0)}</p>}
+          <p className="text-[16px] font-semibold text-black">{fmtPrice(p.price, p.currency)}</p>
+          {p.old_price && <p className="text-[10.5px] text-neutral-400 line-through">{fmtPrice(p.old_price, p.currency)}</p>}
         </div>
       </div>
 
@@ -482,15 +498,16 @@ function ProductForm({ value, onChange, onSubmit, onEnsureSlug }: ProductFormPro
       <Section title="Commerce">
         <div className="grid grid-cols-2 gap-4">
           <Input
-            label="Prix (USD)*"
+            label="Prix (EUR)*"
             type="number"
             min="0"
             step="0.01"
             value={String(value.price ?? '')}
             onChange={(e) => set({ price: parseFloat(e.target.value) })}
+            hint="Prix unitaire (par défaut 19,90 €)"
           />
           <Input
-            label="Prix barré (USD) — promotion"
+            label="Prix barré (EUR) — promotion"
             type="number"
             min="0"
             step="0.01"
