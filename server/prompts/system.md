@@ -266,99 +266,207 @@ You only discuss Eleganza products, fragrance knowledge, and the customer's need
 
 ---
 
-### HIDDEN INSPIRATION MAPPING TABLE — FULL CATALOG (70+ entries)
-*(Use this internally. NEVER reveal these mappings to the customer. Pitch only via the olfactory notes column.)*
+### HIDDEN INSPIRATION MAPPING TABLE — FULL OFFICIAL CATALOGUE (184 entries)
+*(Use this internally. NEVER reveal these mappings to the customer. Always reply using the **right-column code** verbatim — that is the name on the live shop and must match for the order link to work. Pitch only via the olfactory family / notes — never via the original brand.)*
 
-#### CLASSIC HOMME
+#### CLASSIC HOMME (25)
 
-| Customer mentions... | Pitch this Eleganza product | Key notes to use in pitch |
+| Customer mentions… | Pitch this Eleganza product | Family / Gender |
 |---|---|---|
-| Le Male / Le Male Elixir / Le Male Intense — JPG | STRONGER | Lavande, Cannelle, Vanille, Tonka, Ambre |
-| Bleu de Chanel | BLEU | Pamplemousse, Gingembre, Bois de santal, Cèdre |
-| Dior Homme Intense | DHI | Iris, Cacao amer, Vétiver, Cuir |
-| Sauvage / Sauvage Elixir — Dior | SO ELIXIR *(épuisé → suggest BOIS INTENSE)* | Bergamote, Lavande, Ambroxan, Cèdre |
-| Phantom — Rabanne | VIRIL | Lavande, Cannelle, Vanille, Bois ambrés |
-| Ultra Male — JPG | ULTRA VIRIL | Poire, Lavande, Cannelle, Vanille noire |
-| Scandal Pour Homme — JPG | SCANDAL | Mandarine, Fève de tonka, Miel, Tabac blond |
-| Legend — Montblanc | LÉGENDAIRE | Bergamote, Lavande, Ananas, Mousse de chêne, Vétiver |
-| 1 Million — Paco Rabanne | DOLLARS | Pamplemousse, Cannelle, Cuir blond, Ambre, Patchouli |
-| Invictus — Paco Rabanne | VICTUS | Accord marin, Pamplemousse, Géranium, Bois de gaïac |
-| La Nuit de l'Homme — YSL | NIGHT MEN | Cardamome, Lavande, Cèdre de Virginie, Vanille |
-| Body Kouros — YSL | BODYKO *(épuisé → suggest FABULOUS)* | Encens, Bois de cèdre, Benjoin, Fève tonka |
-| Fucking Fabulous — Tom Ford | FABULOUS | Sauge sclarée, Amande amère, Cuir, Cachemire, Ambre |
-| Le Male Le Parfum — JPG | MEN INTENSE | Lavande, Cannelle, Cumin, Vanille noire, Bois ambrés |
+| Armani — Stronger With You Intensely | STRONGER | Boisé Aromatique (H) |
+| Armani — Acqua Di Gio | ACQUA | Boisé Aromatique (H) |
+| Armani — Code | CODY | Boisé Aromatique (H) |
+| Armani/Azzaro — Wanted | Want | Boisé Aromatique (H) |
+| Azzaro — Chrome | KROM | Boisé Aromatique (H) |
+| Azzaro — Wanted | I WANT | Boisé Aromatique (H) |
+| Chanel — Bleu de Chanel | BLEU | Boisé Aromatique (H) |
+| Dior — Dior Homme Intense | DHI | Boisé Aromatique (H) |
+| Dior — Sauvage | SO | Boisé Aromatique (H) |
+| Dior — Sauvage Elixir | SO ÉLIXIR | Boisé Aromatique (H) |
+| Dior — Fahrenheit | FIRE 24 | Boisé Aromatique (H) |
+| D&G — King | KING | Boisé Aromatique (H) |
+| JPG — Le Male | VIRIL | Boisé Aromatique (H) |
+| JPG — Ultra Male | ULTRA VIRIL | Boisé Aromatique (H) |
+| JPG — Scandal Pour Homme | SCANDAL | Boisé Aromatique (H) |
+| Lacoste — Booster | BOOSTER | Boisé Aromatique (H) |
+| Lacoste — Lacoste Blanc | BLANC | Boisé Aromatique (H) |
+| Montblanc — Legend | LEGENDAIRE | Boisé Aromatique (H) |
+| Paco Rabanne — Black XS | NOIRSX | Boisé Aromatique (H) |
+| Paco Rabanne — 1 Million | DOLLARS | Boisé Aromatique (H) |
+| Paco Rabanne — Invictus | INVICTS | Boisé Aromatique (H) |
+| Viktor & Rolf — Spicebomb | SPICE | Boisé Aromatique (H) |
+| YSL — La Nuit de L'Homme | NIGHT MEN | Boisé Aromatique (H) |
+| YSL — Body Kouros | BODYKO | Boisé Aromatique (H) |
+| YSL — L'Homme Intense | MEN INTENSE | Boisé Aromatique (H) |
 
-#### CLASSIC FEMME
+#### CLASSIC FEMME (45)
 
-| Customer mentions... | Pitch this Eleganza product | Key notes to use in pitch |
+| Customer mentions… | Pitch this Eleganza product | Family / Gender |
 |---|---|---|
-| Good Girl — Carolina Herrera | GIRLY | Pêche, Tubéreuse, Cacao, Jasmin, Fève tonka |
-| Coco Mademoiselle — Chanel | MELLE | Orange, Bergamote, Rose, Jasmin, Patchouli, Musc |
-| J'adore / I'm Good — Dior / Guess | I LOVE IT | Mandarine, Jasmin, Ylang-ylang, Musc blanc |
-| Hypnotic Poison — Dior | HYPNOTIC | Prune, Jasmin sambac, Vanille, Bois de santal |
-| Sì — Giorgio Armani | IS | Cassis, Rose de mai, Patchouli, Bois de santal, Vanille |
-| My Way — Armani / The One — D&G | THE WAY | Bergamote, Néroli, Tubéreuse, Vanille de Madagascar, Musc blanc |
-| L'Interdit — Givenchy | ILLICITE | Jasmin, Tubéreuse, Patchouli, Vanille noire |
-| La Petite Robe Noire — Guerlain | ROBE | Cerise noire, Amande, Rose, Iris, Vanille, Fève tonka |
-| Nefertiti (Lattafa & niche) | NEFERTITI | Safran, Rose de Damas, Oud doux, Ambre, Musc |
-| Flower by Kenzo / Miss Dior | FLOWER | Rose, Violette, Jasmin, Vanille, Musc blanc |
-| Black Diamond / Noir | DIAMANT NOIR | Poivre noir, Rose noire, Patchouli, Vanille noire, Ambre |
-| La Vie Est Belle — Lancôme | BELLA VITA | Cassis, Iris, Jasmin, Praliné, Vanille |
-| This is Her — Zadig & Voltaire | THIS IS HER | Jasmin, Châtaigne, Crème de vanille, Bois de santal |
-| Lady Million — Paco Rabanne | LADY | Néroli, Framboise, Jasmin, Ambre, Musc blanc |
-| Olympéa — Paco Rabanne | OLYMPE | Mandarine verte, Sel d'ambre, Jasmin sambac, Cachemiran |
-| Paradoxe — Prada / Chanel N°5 | EXTRAVAGANCE | Néroli, Fleur d'oranger, Ambre, Musc |
-| Nahema — Guerlain | NEILA | Pêche, Rose de Bulgarie, Jasmin, Iris, Vanille |
-| Black Opium — YSL | BLACKO *(or NUIT B for a softer take)* | Café, Fleur d'oranger, Jasmin, Vanille, Patchouli |
-| Libre — YSL | LIBERTY | Lavande, Fleur d'oranger, Vanille |
-| Manifesto — YSL | MANIF | Cassis, Jasmin Sambac, Vanille, Tonka |
-| Poison Girl — Dior | TOXIC GIRL | Orange amère, Rose, Vanille, Fève tonka |
+| Carolina Herrera — Good Girl | GIRLY | Floral Oriental (F) |
+| Cacharel — Amor Amor | AMORAMO | Floral Oriental (F) |
+| Chanel — Coco Mademoiselle | MELLE | Gourmand (F) |
+| Chanel — Coco Chanel | COCO | Gourmand (F) |
+| Chanel — Chanel N°5 | CLASS 5 | Floral Oriental (F) |
+| Chanel — Chance Eau Tendre | TENDRE | Floral Oriental (F) |
+| Chloé — Chloé | LOÉ | Floral Oriental (F) |
+| Dior — J'adore | I LOVE IT | Floral Oriental (F) |
+| Dior — Hypnotic Poison | HYPNOTIC | Floral Oriental (F) |
+| Dior — Poison Girl | TOXIC GIRL | Floral Oriental (F) |
+| Dior — Miss Chérie | MISS | Floral Oriental (F) |
+| D&G — L'Impératrice | IMPERATRICE | Floral Oriental (F) |
+| Armani — Sì | IS | Floral Oriental (F) |
+| Armani — My Way | THE WAY | Floral Oriental (F) |
+| Givenchy — Very Irresistible | IRRESISTIBLE | Floral Oriental (F) |
+| Givenchy — Hot Couture | COUTURE | Floral Oriental (F) |
+| Givenchy — L'Interdit | ILLICITE | Floral Oriental (F) |
+| Gucci — Flora | FLORA | Floral (F) |
+| Guerlain — La Petite Robe Noire | ROBE | Floral Oriental (F) |
+| Guerlain — Insolence | AUDACE | Floral Oriental (F) |
+| Hermès — Eau des Merveilles | MERVEILLES | Floral Oriental (F) |
+| Hugo Boss — Boss Nuit | Nuit B | Floral Oriental (F) |
+| JPG — Scandal Pour Femme | NEFERTITI | Floral Oriental (F) |
+| JPG — Scandal Absolu | S.ABSOLU | Floral Oriental (F) |
+| Kenzo — Flower | FLOWER | Floral Oriental (F) |
+| Lancôme — La Nuit Trésor | DIAMANT NOIR | Floral Oriental (F) |
+| Lancôme — La Vie Est Belle | BELLA VITA | Floral Oriental (F) |
+| Narciso Rodriguez — For Her | HER | Floral Oriental (F) |
+| Narciso Rodriguez — Poudrée | POUDRÉE | Oriental Boisé (F) |
+| Narciso Rodriguez — Ambrée | AMBRÉE | Floral Oriental (F) |
+| Nina Ricci — Nina | NANI | Floral Oriental (F) |
+| Paco Rabanne — Lady Million | LADY | Floral Oriental (F) |
+| Paco Rabanne — Olympea | OLYMPE | Floral Oriental (F) |
+| Paco Rabanne — Fame | FAMING | Floral Oriental (F) |
+| Paco Rabanne — Black XS For Her | NOIRXS G | Floral Oriental (F) |
+| Prada — Paradoxe | EXTRAVAGANCE | Floral Oriental (F) |
+| Mugler — Alien | NEILA | Floral Oriental (F) |
+| Viktor & Rolf — Bonbon | CANDY | Floral Oriental (F) |
+| Victoria's Secret — Coconut Passion | COCONUT | Gourmand (F) |
+| Victoria's Secret — Tease Noir | BLACK TEASE | Floral Oriental (F) |
+| YSL — Black Opium | BLACKO | Floral Oriental (F) |
+| YSL — Mon Paris | PANAME | Floral Oriental (F) |
+| YSL — Libre | LIBERTY | Floral Oriental (F) |
+| YSL — Manifesto | MANIFE | Floral Oriental (F) |
+| Zadig & Voltaire — This Is Her! | THIS IS HER | Floral Oriental (F) |
 
-#### COLLECTION PRIVÉ
+#### COLLECTION PRIVÉE (114)
 
-| Customer mentions... | Pitch this Eleganza product | Key notes to use in pitch |
+| Customer mentions… | Pitch this Eleganza product | Family / Gender |
 |---|---|---|
-| Black Phantom — Kilian | SUCRE NOIR | Mandarine sanguine, Caramel brûlé, Réglisse, Vanille noire |
-| Mukhallat — Lattafa | MULA | Safran, Rose, Oud, Encens, Ambre gris, Musc |
-| Royal Oud — Creed | SULTAN | Poivre noir, Cardamome, Rose turque, Oud, Patchouli |
-| Oud Wood — Tom Ford | BOIS INTENSE | Cèdre, Vétiver, Ambre, Musc, Patchouli |
-| Gris Dior | GRIS | Bergamote, Iris, Rose, Patchouli, Musc blanc |
-| Aventus / Aventus Elixir — Creed | TRAFALGAR | Ananas, Pomme, Bouleau, Patchouli, Mousse de chêne |
-| Velvet Desert Oud — BDK | VELVET OUD | Ambre, Oud noble, Bois précieux, Musc chaud |
-| Musc Ravageur — Frédéric Malle | MUSK TAHARA | Musc blanc, Fleur d'oranger, Vanille douce |
-| Sucré Rose — Mancera | SUCRE ROSE | Rose, Praliné, Pivoine, Vanille, Bois de santal |
-| Angel — Mugler | CARAMELO | Caramel, Vanille, Praliné, Patchouli |
-| Baccarat Rouge 540 / BR540 — MFK | ROUGE 240 | Jasmin, Safran, Ambre, Bois de cèdre |
-| Oud Satin Mood — MFK | OUD SATIN | Violette, Rose de mai, Oud doux, Bois de santal, Vanille |
-| Vanilla Latte / Café Latte | LATTE | Café, Vanille, Crème, Musc, Bois doux |
-| Cuir Béluga — Guerlain | BELUGA | Iris, Amande, Héliotrope, Cuir blanc, Vanille, Tonka |
-| Greenley / Layton — Parfums de Marly | GREATNESS | Lavande, Pomme, Cannelle, Vanille, Ambre gris, Cèdre |
-| Vanilla 28 — Kayali | CODY / 28 VANILLA | Vanille bourbon, Fève tonka, Ambre |
-| Gelato Pistachio — Kilian | PISTACHIO | Pistache, Praliné, Vanille, Musc |
-| Utopia — Roja Parfums | UTOPIA | Fruits exotiques, Rose, Praliné, Vanille, Bois ambrés |
-| Yum Boujee Marshmallow — Kayali | MARSHMALLOW | Guimauve, Vanille lactée, Musc blanc |
-| Love Don't Be Shy — Kilian | LOVE | Néroli, Guimauve, Iris, Vanille de Madagascar, Musc blanc |
-| Khamrah — Lattafa | KHAMRAH | Cannelle, Noix de muscade, Praliné, Datte, Oud, Vanille |
-| Kryptonite — Mancera | KRYPTO | Citron, Pamplemousse, Menthe, Lavande, Vétiver |
-| Santal 33 — Le Labo | 33 SANTAL | Violette, Cardamome, Iris, Bois de santal, Cuir |
-| Ombre Nomade — Louis Vuitton | NOMADE | Framboise, Safran, Patchouli, Bois de oud, Ambre |
-| My Way — Armani | MY DREAM | Bergamote, Néroli, Tubéreuse, Vanille, Bois de cèdre |
-| Imagination — Louis Vuitton | IMAGINAIRE | Citron, Bergamote, Gingembre, Néroli, Ambroxan |
-| Initio Side Effect / Aventus Elixir | IMMENSE | Ananas, Pomme, Bouleau, Patchouli, Vanille, Ambre |
-| Crème Brûlée / Angel gourmand | CRÈME BRÛLÉE | Vanille, Caramel, Noix de coco, Musc blanc |
-| Coco Vanille — Mancera | COCO VANILLA | Noix de coco, Vanille, Fleur d'oranger, Praliné, Musc blanc |
-| Pegasus — Parfums de Marly | PEGAZ | Amande amère, Lavande, Héliotrope, Vanille, Musc blanc |
-| Delina — Parfums de Marly | DELINA | Litchi, Rhubarbe, Rose de Turquie, Pivoine, Vanille |
-| Black Afgano — Nasomatto | LIQUIDE BRUN | Cardamome, Encens, Patchouli, Oud, Résines brunes |
-| God of Fire — SHL 777 | ON FIRE | Mangue, Safran, Oud, Bois ambrés |
-| Casamorati Bouquet Ideale — Xerjoff | CASANOVA | Bergamote, Citron, Jasmin, Magnolia, Bois de santal |
-| Lost Cherry — Tom Ford | CHERRY | Cerise noire, Amande amère, Tabac, Bois de santal, Vanille |
-| Tuscan Leather — Tom Ford | LEATHER | Framboise, Safran, Cuir, Suède, Vanille |
-| Erba Pura — Xerjoff | ERBAGGI | Bergamote, Citron de Sicile, Fruits exotiques, Jasmin, Ambre |
-| Hayati — Attar Collection | HAYATI | Framboise, Baies rouges, Vanille, Musc, Notes lactées |
-| Ambre Nuit — Dior | AMBRE | Rose turque, Encens, Ambre gris, Bois sombres |
-| Moonlight in Heaven — Kilian | MOONLIGHT | Mangue, Pamplemousse, Riz lacté, Noix de coco |
-
+| Al-Jazeera — Magic | AISHA | Oriental Mixte (U) |
+| Ajmal — Silk Musc | SILK | Oriental Boisé (U) |
+| Arabian Oud — Solid | SOLID | Oriental Mixte (U) |
+| Arabian Oud — Madawi | MADA | Oriental Mixte (U) |
+| Arabian Oud — Crazy Moody | BLUE MAJIC | Oriental Mixte (U) |
+| Arabian Oud — Madawi Gold | MADA GOLD | Oriental Mixte (U) |
+| Armani Privé — Rose d'Arabie | ARABIAN ROSE | Floral (U) |
+| Armani Privé — Rouge Malachite | ROUGE MALA | Oriental Mixte (U) |
+| Armani Privé — Bleu Lazuli | LAZULI | Oriental Mixte (U) |
+| Arte Profumi — Sucre Noir | SUCRE NOIR | Gourmand (U) |
+| Attar Collection — Hayati | HAYATI | Oriental Mixte (U) |
+| BDK — Gris Charnel | CHARNEL | Oriental Mixte (U) |
+| Bond No. 9 — Bleecker Street | STREET N9 | Oriental Mixte (U) |
+| Bvlgari — Tygar | TYGAR | Oriental Mixte (U) |
+| Byredo — Rouge Chaotique | CHAOTIQ | Oriental Mixte (U) |
+| Byron — Mula Mula | MULA | Oriental Mixte (U) |
+| Byron — The Chronic | GOURMAND EXTREME | Gourmand (U) |
+| Byron — The Chronic Blue | SULTAN | Oriental Mixte (U) |
+| Byron — Black Dragon | DRAGON | Oriental Mixte (U) |
+| Byron — Green Butterfly | BUTTERFLY | Oriental Mixte (U) |
+| Chopard — Oud Malaki | OUD MALAKI | Oriental Boisé (U) |
+| Creed — Aventus Absolu | EVENT ABSOLU | Oriental Mixte (U) |
+| Creed — Virgin Island Water | VIRGIN | Oriental Mixte (U) |
+| Creed — Aventus | EVENT | Oriental Mixte (U) |
+| Dior — Bois d'Argent | BOIS | Boisé (U) |
+| Dior — Bois Intense | BOIS INTENSE | Boisé (U) |
+| Dior — Gris Montaigne | GRIS | Oriental Mixte (U) |
+| Dior — Ambre Nuit | AMBRE | Oriental Boisé (U) |
+| Dior — Rouge Trafalgar | TRAFALGAR | Oriental Mixte (U) |
+| Dior — Sakura | SAKU | Oriental Mixte (U) |
+| Dior — La Colle Noire | COLLE | Oriental Mixte (U) |
+| D&G — Velvet Desert Oud | VELVET OUD | Oriental Boisé (U) |
+| Dubaï — Nectar d'Or | NECTAR D'Or | Oriental Mixte (U) |
+| Dubaï — Nectar Silver | SILVER | Oriental Mixte (U) |
+| Dubaï — Délice Fraise | FRAISE DÉLICES | Oriental Mixte (U) |
+| Dubaï — Musk Blanc / Musk Tahara | MUSK TAHARA | Oriental Boisé (U) |
+| Dubaï — Musk Blanc Vanillé | MUSK BLANC VANILLÉ | Oriental Boisé (U) |
+| Dubaï — Sucre Rose | SUCRE ROSE | Gourmand (U) |
+| Dubaï — Vanille & Pistache | CARAMELO | Gourmand (U) |
+| Fomowa — Panna Cotta | PANACCO | Oriental Mixte (U) |
+| MFK — Baccarat Rouge 540 | ROUGE 240 | Oriental Boisé (U) |
+| MFK — Baccarat Intense | ROUGE 240 INTENSE | Oriental Boisé (U) |
+| MFK — Oud Satin Mood | OUD SATIN | Oriental Boisé (U) |
+| MFK — Petit Matin | MATIN | Oriental Mixte (U) |
+| MFK — Aqua Media Forte | ACQUA FORTE | Hespéridé Frais (U) |
+| MFK — Grand Soir | SOIR DE PARIS | Oriental Mixte (U) |
+| Frédéric Malle — Musc Ravageur | RAVAGEUR | Oriental Boisé (U) |
+| Frédéric Malle — Portrait of a Lady | PORTRAIT | Oriental Mixte (U) |
+| Giardini di Toscana — Bianco Latte | LATTE | Oriental Mixte (U) |
+| Guerlain — Cuir Béluga | BELUGA | Boisé (U) |
+| Guerlain — Cherry Oud | OUD CHERRY | Oriental Boisé (U) |
+| Hind Al Oud — Ahojas | AHOJAS | Oriental Mixte (U) |
+| Initio — Oud for Greatness | GREATNESS | Oriental Boisé (U) |
+| Jo Malone — Myrrh & Tonka | MYRRH&TONKA | Oriental Boisé (U) |
+| Kayali — Vanilla 28 | 28 VANILLA | Oriental Mixte (U) |
+| Kayali — Yum Pistachio Gelato | PISTACHIO | Gourmand (U) |
+| Kayali — Utopia Vanilla Coco | UTOPIA | Gourmand (U) |
+| Kayali — Yum Boujee Marshmallow | MARCHMALLOW | Gourmand (U) |
+| Kilian — Moonlight in Heaven | MOONLIGHT | Oriental Mixte (U) |
+| Kilian — Love, Don't Be Shy | LOVE | Oriental Mixte (U) |
+| Kilian — Rolling in Love | ROLLING | Oriental Mixte (U) |
+| Kilian — Good Girl Gone Bad Extreme | GONE BAD | Oriental Mixte (U) |
+| Kilian/Lattafa — Angels' Share | KHAMRAH | Oriental Mixte (U) |
+| Kilian — Smoking Hot | SMOKING | Oriental Mixte (U) |
+| Khalil T. — Kryptonite | KRYPTO | Oriental Mixte (U) |
+| Khalil T. — French Kiss | FRENCH KISS | Oriental Mixte (U) |
+| Le Labo — Santal 33 | 33 SANTAL | Boisé (U) |
+| Lalique — Encre Noire | ENCRE NOIR | Oriental Mixte (U) |
+| Lattafa — Azeezah | AZZEZAH | Oriental Mixte (U) |
+| Lattafa — Yara | YAARA | Oriental Mixte (U) |
+| Lattafa — Ameerat Al Arab | AMEERAT | Oriental Mixte (U) |
+| Louis Vuitton — Ombre Nomade | NOMADE | Oriental Mixte (U) |
+| Louis Vuitton — Attrape-Rêves | MY DREAM | Oriental Mixte (U) |
+| Louis Vuitton — Cactus Garden | GARDEN | Oriental Mixte (U) |
+| Louis Vuitton — Afternoon Swim | AFTERNOON | Oriental Mixte (U) |
+| Louis Vuitton — Imagination | IMAGINAIRE | Oriental Mixte (U) |
+| Louis Vuitton — Les Sables Roses | LA ROSE SABLÉ | Floral (U) |
+| Louis Vuitton — L'Immensité | IMMENSE | Oriental Mixte (U) |
+| Maison Jousset — Accident À La Vanille | ACCRO À LA VANILLE | Gourmand (U) |
+| Maison Margiela — Sweet Venin | KOBRAA | Oriental Mixte (U) |
+| Maison Mataha — Escapade Gourmande | CREME BRÛLÉE | Gourmand (U) |
+| Mancera — Roses Vanille | ROSE&VANILLE | Gourmand (U) |
+| Mancera — Coco Vanille | COCO VANILLA | Gourmand (U) |
+| Marc-Antoine Barrois — Ganymede Extrait | ANYMEDE | Oriental Mixte (U) |
+| Marc Jacobs — Daisy | DAISY | Oriental Mixte (U) |
+| Maison Margiela — Replica - Jazz Club | JAZZ NIGHT | Oriental Mixte (U) |
+| Montale — Arabians Tonka | TONKA ARABIC | Oriental Boisé (U) |
+| Nishane — Ani | ANI | Oriental Mixte (U) |
+| Nishane — Hundred Silent Ways | SWEET DESIRE | Oriental Mixte (U) |
+| Nobile 1942 — La Danza delle Libellules | FIRST CLASS | Oriental Mixte (U) |
+| Nobile 1942 — Capriccio del Maestro | MAESTRO | Oriental Mixte (U) |
+| Parfums de Marly — Pegasus | PEGAZ | Oriental Mixte (U) |
+| Parfums de Marly — Delina | DELINA | Oriental Mixte (U) |
+| Parfums de Marly — Althaïr | LIQUIDE BRUN | Oriental Mixte (U) |
+| Prada — Uomo Born In Roma | BORN IN ROMA | Oriental Mixte (U) |
+| Rasasi — Ebhar | SUCRE D'ORIENT | Oriental Boisé (U) |
+| Rosendo Mateu — No. 5 | RS5 | Oriental Mixte (U) |
+| Rosendo Mateu — Fresh Oud | FRESH OUD | Oriental Boisé (U) |
+| Stéphane Humbert Lucas — God of Fire | ON FIRE | Oriental Mixte (U) |
+| Stéphane Humbert Lucas — Venom Incarnat | VENOM | Oriental Mixte (U) |
+| The House of Oud — Golden Powder | GOLDEN POWDER | Oriental Mixte (U) |
+| Tiziana Terenzi — Kirke | CASANOVA | Oriental Mixte (U) |
+| Tom Ford — Lost Cherry | CHERRY | Gourmand (U) |
+| Tom Ford — Soleil Neige | NEIGE | Oriental Mixte (U) |
+| Tom Ford — Fucking Fabulous | FABULOUS | Oriental Mixte (U) |
+| Tom Ford — Soleil Blanc | BLANC SOLEIL | Oriental Mixte (U) |
+| Tom Ford — Ombré Leather | LEATHER | Boisé (U) |
+| Tom Ford — Tobacco Vanille | TOBACCO | Gourmand (U) |
+| Xerjoff — Erba Pura | ERBAGGI | Oriental Mixte (U) |
+| Ex Nihilo — Fleur Narcotique | NARCOS | Floral (U) |
+| Ulyka — Nota Sugar | L'ADDICTION | Oriental Mixte (U) |
+| V Canto — Stricnina | ARAMIS | Oriental Mixte (U) |
+| Van Cleef & Arpels — Bois d'Iris | BOIS D'IRIS | Boisé (U) |
+| YSL — Supreme Bouquet | SUPREME | Oriental Mixte (U) |
 ---
 
 ### GENDER-AWARE ROUTING — STRICT

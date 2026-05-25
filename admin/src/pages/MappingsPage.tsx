@@ -161,7 +161,7 @@ export function MappingsPage() {
   };
 
   const handleSeed = async () => {
-    if (!confirm('Importer les 74 mappages depuis knowledgeBase.js ? Aucun mappage ne sera supprimé.')) return;
+    if (!confirm('Importer les 184 mappages depuis le catalogue officiel ? Aucun mappage existant ne sera supprimé.')) return;
     setSeeding(true);
     setError(null);
     try {
@@ -210,7 +210,7 @@ export function MappingsPage() {
         <EmptyState
           icon={<Shuffle size={36} strokeWidth={1.4} />}
           title="Aucun mappage"
-          description="Importez les 74 mappages prêts depuis knowledgeBase.js (Baccarat Rouge 540 → ROUGE 240, Sauvage → SO ELIXIR, etc.) ou créez le premier mappage à la main."
+          description="Importez les 184 mappages du catalogue officiel d'Eleganza (Baccarat Rouge 540 → ROUGE 240, Le Male → VIRIL, Aventus → EVENT, …) ou créez le premier mappage à la main."
           action={
             <div className="flex items-center gap-2">
               <Button
@@ -220,7 +220,7 @@ export function MappingsPage() {
                 isLoading={seeding}
                 onClick={handleSeed}
               >
-                Importer les 74 mappages
+                Importer les 184 mappages
               </Button>
               <Button
                 variant="secondary"

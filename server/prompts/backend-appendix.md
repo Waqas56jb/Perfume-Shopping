@@ -7,108 +7,207 @@ the source of truth for tone, content, and the "never name brands" law.*
 
 ---
 
-## PRODUCT ID GLOSSARY
+## PRODUCT ID GLOSSARY — 184 official slugs
 
-When you decide to recommend a product, return its **id** (the slug below) — NOT the display name — in the `product_ids` argument of the `reply_to_customer` tool call. Recommend in-stock items only. Out-of-stock items are listed with ⚠ and must never be returned.
+When you recommend a product, return its **id** (the slug below) — NOT the display name — in the `product_ids` argument. The display name (`code_site`) is what the customer sees on the shop and is what you should mention in your natural-language reply.
 
-This glossary is a **static reference**. The authoritative list of in-stock IDs is injected by the server in the `## 🔥 LIVE CATALOG` block below the prompt — that's what the tool's `product_ids` enum is built from. If a slug here isn't in LIVE CATALOG, it isn't selectable.
+This glossary mirrors `server/data/realCatalog.json`. The live tool enum is built per-turn from the in-stock rows of the database, so a slug here that isn't `in_stock` is not selectable.
 
-#### CLASSIC HOMME
-| Display name | id (use this in tool calls) | Gender | Status |
+#### CLASSIC HOMME (25)
+| Display name (code_site) | id slug | Gender | Status |
 |---|---|---|---|
 | STRONGER | `stronger` | H | ✅ |
+| ACQUA | `acqua` | H | ✅ |
+| CODY | `cody` | H | ✅ |
+| Want | `want` | H | ✅ |
+| KROM | `krom` | H | ✅ |
+| I WANT | `i-want` | H | ✅ |
 | BLEU | `bleu` | H | ✅ |
 | DHI | `dhi` | H | ✅ |
-| SO ELIXIR | `so-elixir` | H | ⚠ ÉPUISÉ |
-| BOIS INTENSE | `bois-intense` | U | ✅ |
+| SO | `so` | H | ✅ |
+| SO ÉLIXIR | `so-elixir` | H | ✅ |
+| FIRE 24 | `fire-24` | H | ✅ |
+| KING | `king` | H | ✅ |
 | VIRIL | `viril` | H | ✅ |
 | ULTRA VIRIL | `ultra-viril` | H | ✅ |
 | SCANDAL | `scandal` | H | ✅ |
-| LÉGENDAIRE | `legendaire` | H | ✅ |
-| DOLLARS | `dollars` | H | ✅ |
-| VICTUS | `victus` | H | ✅ |
-| NIGHT MEN | `night-men` | H | ✅ |
-| BODYKO | `bodyko` | H | ⚠ ÉPUISÉ |
-| FABULOUS | `fabulous` | U | ✅ |
-| MEN INTENSE | `men-intense` | H | ✅ |
 | BOOSTER | `booster` | H | ✅ |
-| FIRST CLASS | `first-class` | H | ✅ |
+| BLANC | `blanc` | H | ✅ |
+| LEGENDAIRE | `legendaire` | H | ✅ |
+| NOIRSX | `noirsx` | H | ✅ |
+| DOLLARS | `dollars` | H | ✅ |
+| INVICTS | `invicts` | H | ✅ |
+| SPICE | `spice` | H | ✅ |
+| NIGHT MEN | `night-men` | H | ✅ |
+| BODYKO | `bodyko` | H | ✅ |
+| MEN INTENSE | `men-intense` | H | ✅ |
 
-#### CLASSIC FEMME
-| Display name | id | Gender | Status |
+#### CLASSIC FEMME (45)
+| Display name (code_site) | id slug | Gender | Status |
 |---|---|---|---|
 | GIRLY | `girly` | F | ✅ |
+| AMORAMO | `amoramo` | F | ✅ |
 | MELLE | `melle` | F | ✅ |
+| COCO | `coco` | F | ✅ |
+| CLASS 5 | `class-5` | F | ✅ |
+| TENDRE | `tendre` | F | ✅ |
+| LOÉ | `loe` | F | ✅ |
 | I LOVE IT | `i-love-it` | F | ✅ |
 | HYPNOTIC | `hypnotic` | F | ✅ |
+| TOXIC GIRL | `toxic-girl` | F | ✅ |
+| MISS | `miss` | F | ✅ |
+| IMPERATRICE | `imperatrice` | F | ✅ |
 | IS | `is` | F | ✅ |
 | THE WAY | `the-way` | F | ✅ |
+| IRRESISTIBLE | `irresistible` | F | ✅ |
+| COUTURE | `couture` | F | ✅ |
 | ILLICITE | `illicite` | F | ✅ |
+| FLORA | `flora` | F | ✅ |
 | ROBE | `robe` | F | ✅ |
+| AUDACE | `audace` | F | ✅ |
+| MERVEILLES | `merveilles` | F | ✅ |
+| Nuit B | `nuit-b` | F | ✅ |
 | NEFERTITI | `nefertiti` | F | ✅ |
+| S.ABSOLU | `s-absolu` | F | ✅ |
 | FLOWER | `flower` | F | ✅ |
 | DIAMANT NOIR | `diamant-noir` | F | ✅ |
 | BELLA VITA | `bella-vita` | F | ✅ |
-| THIS IS HER | `this-is-her` | F | ✅ |
+| HER | `her` | F | ✅ |
+| POUDRÉE | `poudree` | F | ✅ |
+| AMBRÉE | `ambree` | F | ✅ |
+| NANI | `nani` | F | ✅ |
 | LADY | `lady` | F | ✅ |
 | OLYMPE | `olympe` | F | ✅ |
+| FAMING | `faming` | F | ✅ |
+| NOIRXS G | `noirxs-g` | F | ✅ |
 | EXTRAVAGANCE | `extravagance` | F | ✅ |
 | NEILA | `neila` | F | ✅ |
+| CANDY | `candy` | F | ✅ |
+| COCONUT | `coconut` | F | ✅ |
+| BLACK TEASE | `black-tease` | F | ✅ |
 | BLACKO | `blacko` | F | ✅ |
+| PANAME | `paname` | F | ✅ |
 | LIBERTY | `liberty` | F | ✅ |
-| MANIF | `manif` | F | ✅ |
-| TOXIC GIRL | `toxic-girl` | F | ✅ |
-| CRÈME BRÛLÉE | `creme-brulee` | F | ✅ |
-| MARSHMALLOW | `marshmallow` | F | ✅ |
-| NUIT B | `nuit-b` | F | ✅ |
-| NANI | `nani` | F | ✅ |
-| COCONUT | `coconut` | F | ⚠ ÉPUISÉ |
-| NOIRSX | `noirsx` | F | ✅ |
-| MUSK TAHARA INTIME | `musk-tahara` | F | ✅ |
+| MANIFE | `manife` | F | ✅ |
+| THIS IS HER | `this-is-her` | F | ✅ |
 
-#### COLLECTION PRIVÉ
-| Display name | id | Gender | Status |
+#### COLLECTION PRIVÉE (114)
+| Display name (code_site) | id slug | Gender | Status |
 |---|---|---|---|
-| AISHA | `aisha` | U | ✅ promo |
+| AISHA | `aisha` | U | ✅ |
+| SILK | `silk` | U | ✅ |
+| SOLID | `solid` | U | ✅ |
+| MADA | `mada` | U | ✅ |
+| BLUE MAJIC | `blue-majic` | U | ✅ |
+| MADA GOLD | `mada-gold` | U | ✅ |
+| ARABIAN ROSE | `arabian-rose` | U | ✅ |
+| ROUGE MALA | `rouge-mala` | U | ✅ |
+| LAZULI | `lazuli` | U | ✅ |
 | SUCRE NOIR | `sucre-noir` | U | ✅ |
 | HAYATI | `hayati` | U | ✅ |
+| CHARNEL | `charnel` | U | ✅ |
+| STREET N9 | `street-n9` | U | ✅ |
+| TYGAR | `tygar` | U | ✅ |
+| CHAOTIQ | `chaotiq` | U | ✅ |
 | MULA | `mula` | U | ✅ |
-| SULTAN | `sultan` | H | ✅ |
+| GOURMAND EXTREME | `gourmand-extreme` | U | ✅ |
+| SULTAN | `sultan` | U | ✅ |
+| DRAGON | `dragon` | U | ✅ |
+| BUTTERFLY | `butterfly` | U | ✅ |
+| OUD MALAKI | `oud-malaki` | U | ✅ |
+| EVENT ABSOLU | `event-absolu` | U | ✅ |
+| VIRGIN | `virgin` | U | ✅ |
+| EVENT | `event` | U | ✅ |
+| BOIS | `bois` | U | ✅ |
+| BOIS INTENSE | `bois-intense` | U | ✅ |
 | GRIS | `gris` | U | ✅ |
-| TRAFALGAR | `trafalgar` | H | ✅ |
+| AMBRE | `ambre` | U | ✅ |
+| TRAFALGAR | `trafalgar` | U | ✅ |
+| SAKU | `saku` | U | ✅ |
+| COLLE | `colle` | U | ✅ |
 | VELVET OUD | `velvet-oud` | U | ✅ |
-| SUCRE ROSE | `sucre-rose` | F | ✅ |
-| CARAMELO | `caramelo` | F | ✅ |
+| NECTAR D'Or | `nectar-d-or` | U | ✅ |
+| SILVER | `silver` | U | ✅ |
+| FRAISE DÉLICES | `fraise-delices` | U | ✅ |
+| MUSK TAHARA | `musk-tahara` | U | ✅ |
+| MUSK BLANC VANILLÉ | `musk-blanc-vanille` | U | ✅ |
+| SUCRE ROSE | `sucre-rose` | U | ✅ |
+| CARAMELO | `caramelo` | U | ✅ |
+| PANACCO | `panacco` | U | ✅ |
 | ROUGE 240 | `rouge-240` | U | ✅ |
+| ROUGE 240 INTENSE | `rouge-240-intense` | U | ✅ |
 | OUD SATIN | `oud-satin` | U | ✅ |
+| MATIN | `matin` | U | ✅ |
+| ACQUA FORTE | `acqua-forte` | U | ✅ |
+| SOIR DE PARIS | `soir-de-paris` | U | ✅ |
+| RAVAGEUR | `ravageur` | U | ✅ |
+| PORTRAIT | `portrait` | U | ✅ |
 | LATTE | `latte` | U | ✅ |
 | BELUGA | `beluga` | U | ✅ |
-| GREATNESS | `greatness` | H | ✅ |
-| CODY / 28 VANILLA | `cody` | U | ✅ |
+| OUD CHERRY | `oud-cherry` | U | ✅ |
+| AHOJAS | `ahojas` | U | ✅ |
+| GREATNESS | `greatness` | U | ✅ |
+| MYRRH&TONKA | `myrrh-tonka` | U | ✅ |
+| 28 VANILLA | `28-vanilla` | U | ✅ |
 | PISTACHIO | `pistachio` | U | ✅ |
 | UTOPIA | `utopia` | U | ✅ |
-| LOVE | `love` | F | ✅ |
+| MARCHMALLOW | `marchmallow` | U | ✅ |
+| MOONLIGHT | `moonlight` | U | ✅ |
+| LOVE | `love` | U | ✅ |
+| ROLLING | `rolling` | U | ✅ |
+| GONE BAD | `gone-bad` | U | ✅ |
 | KHAMRAH | `khamrah` | U | ✅ |
-| KRYPTO | `krypto` | H | ✅ |
-| 33 SANTAL | `santal-33` | U | ✅ |
+| SMOKING | `smoking` | U | ✅ |
+| KRYPTO | `krypto` | U | ✅ |
+| FRENCH KISS | `french-kiss` | U | ✅ |
+| 33 SANTAL | `33-santal` | U | ✅ |
+| ENCRE NOIR | `encre-noir` | U | ✅ |
+| AZZEZAH | `azzezah` | U | ✅ |
+| YAARA | `yaara` | U | ✅ |
+| AMEERAT | `ameerat` | U | ✅ |
 | NOMADE | `nomade` | U | ✅ |
-| MY DREAM | `my-dream` | F | ✅ |
+| MY DREAM | `my-dream` | U | ✅ |
+| GARDEN | `garden` | U | ✅ |
+| AFTERNOON | `afternoon` | U | ✅ |
 | IMAGINAIRE | `imaginaire` | U | ✅ |
-| IMMENSE | `immense` | H | ✅ |
-| COCO VANILLA | `coco-vanilla` | F | ✅ |
-| PEGAZ | `pegaz` | H | ✅ |
-| DELINA | `delina` | F | ✅ |
+| LA ROSE SABLÉ | `la-rose-sable` | U | ✅ |
+| IMMENSE | `immense` | U | ✅ |
+| ACCRO À LA VANILLE | `accro-a-la-vanille` | U | ✅ |
+| KOBRAA | `kobraa` | U | ✅ |
+| CREME BRÛLÉE | `creme-brulee` | U | ✅ |
+| ROSE&VANILLE | `rose-vanille` | U | ✅ |
+| COCO VANILLA | `coco-vanilla` | U | ✅ |
+| ANYMEDE | `anymede` | U | ✅ |
+| DAISY | `daisy` | U | ✅ |
+| JAZZ NIGHT | `jazz-night` | U | ✅ |
+| TONKA ARABIC | `tonka-arabic` | U | ✅ |
+| ANI | `ani` | U | ✅ |
+| SWEET DESIRE | `sweet-desire` | U | ✅ |
+| FIRST CLASS | `first-class` | U | ✅ |
+| MAESTRO | `maestro` | U | ✅ |
+| PEGAZ | `pegaz` | U | ✅ |
+| DELINA | `delina` | U | ✅ |
 | LIQUIDE BRUN | `liquide-brun` | U | ✅ |
+| BORN IN ROMA | `born-in-roma` | U | ✅ |
+| SUCRE D'ORIENT | `sucre-d-orient` | U | ✅ |
+| RS5 | `rs5` | U | ✅ |
+| FRESH OUD | `fresh-oud` | U | ✅ |
 | ON FIRE | `on-fire` | U | ✅ |
+| VENOM | `venom` | U | ✅ |
+| GOLDEN POWDER | `golden-powder` | U | ✅ |
 | CASANOVA | `casanova` | U | ✅ |
 | CHERRY | `cherry` | U | ✅ |
+| NEIGE | `neige` | U | ✅ |
+| FABULOUS | `fabulous` | U | ✅ |
+| BLANC SOLEIL | `blanc-soleil` | U | ✅ |
 | LEATHER | `leather` | U | ✅ |
+| TOBACCO | `tobacco` | U | ✅ |
 | ERBAGGI | `erbaggi` | U | ✅ |
-| AMBRE | `ambre` | U | ✅ |
-| MOONLIGHT | `moonlight` | U | ✅ |
-| LAZULI | `lazuli` | U | ✅ |
-| MERVEILLES | `merveilles` | U | ✅ |
-
+| NARCOS | `narcos` | U | ✅ |
+| L'ADDICTION | `l-addiction` | U | ✅ |
+| ARAMIS | `aramis` | U | ✅ |
+| BOIS D'IRIS | `bois-d-iris` | U | ✅ |
+| SUPREME | `supreme` | U | ✅ |
 ---
 
 ## TOOL USE — `reply_to_customer`
