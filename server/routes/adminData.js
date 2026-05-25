@@ -25,6 +25,9 @@ import {
   getProductsBySlugs,
   addProductPhoto,
   removeProductPhoto,
+  createDupeMapping,
+  updateDupeMapping,
+  deleteDupeMapping,
 } from '../repositories/productRepo.js';
 import {
   uploadProductPhoto,
@@ -325,6 +328,114 @@ adminDataRouter.delete('/products/:slug/photos/:index', async (req, res) => {
 adminDataRouter.get('/dupe-mappings', async (_req, res) => {
   try { res.json({ items: await listDupeMappings({ activeOnly: false }) }); }
   catch (err) { res.status(500).json({ error: 'internal_error', message: err.message }); }
+});
+
+/**
+ * Auto-seed endpoint — populates `dupe_mappings` from knowledgeBase.js if
+ * (and only if) the table is empty. Lets the admin click ONE button on
+ * the empty state of the Mappings page instead of running a CLI script.
+ * Also auto-imports any missing `products` rows that the mappings reference.
+ */
+adminDataRouter.post('/dupe-mappings/seed-from-knowledge-base', async (_req, res) => {
+  try {
+    const existing = await listDupeMappings({ activeOnly: false });
+    if (existing.length > 0) {
+      return res.status(409).json({
+        error: 'already_seeded',
+        message: `Le catalogue contient déjà ${existing.length} mappage(s). Supprimez-les d'abord pour réinitialiser.`,
+      });
+    }
+    const { PRODUCTS, DUPE_MAP } = await import('../knowledgeBase.js');
+
+    // 1️⃣  Make sure every Eleganza product referenced by a mapping exists
+    //     in the DB (so the foreign key holds). Upsert by slug — same row
+    //     shape as scripts/seedCatalog.js.
+    const productRows = PRODUCTS.map((p, i) => ({
+      slug: p.id,
+      name: p.name,
+      tagline: p.tagline,
+      family: p.family,
+      gender: p.gender,
+      notes_tete: p.notes.tete,
+      notes_coeur: p.notes.coeur,
+      notes_fond: p.notes.fond,
+      season: p.season,
+      intensity: p.intensity,
+      sillage: p.sillage,
+      longevity: p.longevity,
+      occasions: p.occasions || [],
+      vibe: p.vibe,
+      price: p.price,
+      old_price: p.oldPrice || null,
+      currency: p.currency || 'EUR',
+      in_stock: p.inStock !== false,
+      url: p.url,
+      sort_order: i,
+    }));
+    const { error: prodErr } = await supabase
+      .from('products')
+      .upsert(productRows, { onConflict: 'slug' });
+    throwIfError(prodErr, 'seed-from-kb/products');
+
+    // 2️⃣  Resolve slug → uuid for the mapping foreign keys.
+    const { data: products, error: pErr } = await supabase
+      .from('products')
+      .select('id, slug');
+    throwIfError(pErr, 'seed-from-kb/lookup');
+    const slugToId = new Map(products.map((p) => [p.slug, p.id]));
+
+    // 3️⃣  Insert every mapping that has a resolvable product.
+    const rows = DUPE_MAP
+      .filter((m) => slugToId.has(m.productId))
+      .map((m) => ({
+        triggers: m.triggers,
+        product_id: slugToId.get(m.productId),
+        is_active: true,
+      }));
+    if (rows.length === 0) {
+      return res.json({ ok: true, inserted: 0, message: 'Aucun mappage à importer.' });
+    }
+    const { error: insErr } = await supabase.from('dupe_mappings').insert(rows);
+    throwIfError(insErr, 'seed-from-kb/insert');
+
+    res.json({
+      ok: true,
+      inserted: rows.length,
+      productsUpserted: productRows.length,
+      message: `${rows.length} mappages importés depuis knowledgeBase.js.`,
+    });
+  } catch (err) {
+    console.error('seed-from-kb failed:', err);
+    res.status(500).json({ error: 'internal_error', message: err.message });
+  }
+});
+
+adminDataRouter.post('/dupe-mappings', async (req, res) => {
+  try {
+    const { triggers, productSlug, notesToPitch, isActive } = req.body || {};
+    const mapping = await createDupeMapping({ triggers, productSlug, notesToPitch, isActive });
+    res.status(201).json({ mapping });
+  } catch (err) {
+    res.status(400).json({ error: 'bad_request', message: err.message });
+  }
+});
+
+adminDataRouter.patch('/dupe-mappings/:id', async (req, res) => {
+  try {
+    const mapping = await updateDupeMapping(req.params.id, req.body || {});
+    res.json({ mapping });
+  } catch (err) {
+    res.status(400).json({ error: 'bad_request', message: err.message });
+  }
+});
+
+adminDataRouter.delete('/dupe-mappings/:id', async (req, res) => {
+  try {
+    await deleteDupeMapping(req.params.id);
+    res.json({ ok: true });
+  } catch (err) {
+    res.status(400).json({ error: 'bad_request', message: err.message });
+  }
 });
 
 adminDataRouter.get('/forbidden-terms', async (_req, res) => {

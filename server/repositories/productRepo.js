@@ -194,6 +194,84 @@ export async function listDupeMappings({ activeOnly = true } = {}) {
   return data || [];
 }
 
+/* Normalise an array of free-text triggers: trim, lowercase, dedupe,
+   max 12 entries, drop empties. Each trigger ≤ 80 chars. */
+function normaliseTriggers(triggers) {
+  if (!Array.isArray(triggers)) return [];
+  const seen = new Set();
+  const out = [];
+  for (const raw of triggers) {
+    if (typeof raw !== 'string') continue;
+    const t = raw.trim().toLowerCase().slice(0, 80);
+    if (!t || seen.has(t)) continue;
+    seen.add(t);
+    out.push(t);
+    if (out.length >= 12) break;
+  }
+  return out;
+}
+
+/** Resolve a slug → uuid; throws a clean 400-style error if unknown. */
+async function resolveProductId(slug) {
+  if (!slug) throw new Error('Slug produit manquant.');
+  const { data, error } = await supabase
+    .from('products')
+    .select('id')
+    .eq('slug', slug)
+    .maybeSingle();
+  throwIfError(error, 'resolveProductId');
+  if (!data) throw new Error(`Produit introuvable: "${slug}".`);
+  return data.id;
+}
+
+export async function createDupeMapping({ triggers, productSlug, notesToPitch, isActive }) {
+  const cleanTriggers = normaliseTriggers(triggers);
+  if (cleanTriggers.length === 0) throw new Error('Au moins un mot-clé est requis.');
+  const product_id = await resolveProductId(productSlug);
+
+  const { data, error } = await supabase
+    .from('dupe_mappings')
+    .insert({
+      triggers: cleanTriggers,
+      product_id,
+      notes_to_pitch: notesToPitch || null,
+      is_active: isActive !== false,
+    })
+    .select('id, triggers, product_id, notes_to_pitch, is_active, hit_count, products(slug,name)')
+    .single();
+  throwIfError(error, 'createDupeMapping');
+  return data;
+}
+
+export async function updateDupeMapping(id, patch) {
+  if (!id) throw new Error('id manquant.');
+  const update = {};
+  if (patch.triggers !== undefined) {
+    const t = normaliseTriggers(patch.triggers);
+    if (t.length === 0) throw new Error('Au moins un mot-clé est requis.');
+    update.triggers = t;
+  }
+  if (patch.productSlug !== undefined) update.product_id = await resolveProductId(patch.productSlug);
+  if (patch.notesToPitch !== undefined) update.notes_to_pitch = patch.notesToPitch || null;
+  if (patch.isActive !== undefined) update.is_active = Boolean(patch.isActive);
+  if (Object.keys(update).length === 0) throw new Error('Aucune modification fournie.');
+
+  const { data, error } = await supabase
+    .from('dupe_mappings')
+    .update(update)
+    .eq('id', id)
+    .select('id, triggers, product_id, notes_to_pitch, is_active, hit_count, products(slug,name)')
+    .single();
+  throwIfError(error, 'updateDupeMapping');
+  return data;
+}
+
+export async function deleteDupeMapping(id) {
+  if (!id) throw new Error('id manquant.');
+  const { error } = await supabase.from('dupe_mappings').delete().eq('id', id);
+  throwIfError(error, 'deleteDupeMapping');
+}
+
 export async function detectMappedProductBySlug(userText) {
   if (!userText) return null;
   const lower = userText.toLowerCase();
