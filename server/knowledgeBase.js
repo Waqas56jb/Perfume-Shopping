@@ -20,7 +20,7 @@ export const PRODUCTS = [
   {
     "id": "stronger",
     "name": "STRONGER",
-    "tagline": "Armani — Stronger With You Intensely",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -42,7 +42,7 @@ export const PRODUCTS = [
   {
     "id": "acqua",
     "name": "ACQUA",
-    "tagline": "Armani — Acqua Di Gio",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -64,7 +64,7 @@ export const PRODUCTS = [
   {
     "id": "cody",
     "name": "CODY",
-    "tagline": "Armani — Code",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -86,7 +86,7 @@ export const PRODUCTS = [
   {
     "id": "want",
     "name": "Want",
-    "tagline": "Armani/Azzaro — Wanted",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -108,7 +108,7 @@ export const PRODUCTS = [
   {
     "id": "krom",
     "name": "KROM",
-    "tagline": "Azzaro — Chrome",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -130,7 +130,7 @@ export const PRODUCTS = [
   {
     "id": "i-want",
     "name": "I WANT",
-    "tagline": "Azzaro — Wanted",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -152,7 +152,7 @@ export const PRODUCTS = [
   {
     "id": "bleu",
     "name": "BLEU",
-    "tagline": "Chanel — Bleu de Chanel",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -174,7 +174,7 @@ export const PRODUCTS = [
   {
     "id": "dhi",
     "name": "DHI",
-    "tagline": "Dior — Dior Homme Intense",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -196,7 +196,7 @@ export const PRODUCTS = [
   {
     "id": "so",
     "name": "SO",
-    "tagline": "Dior — Sauvage",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -218,7 +218,7 @@ export const PRODUCTS = [
   {
     "id": "so-elixir",
     "name": "SO ÉLIXIR",
-    "tagline": "Dior — Sauvage Elixir",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -240,7 +240,7 @@ export const PRODUCTS = [
   {
     "id": "fire-24",
     "name": "FIRE 24",
-    "tagline": "Dior — Fahrenheit",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -262,7 +262,7 @@ export const PRODUCTS = [
   {
     "id": "king",
     "name": "KING",
-    "tagline": "D&G — King",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -284,7 +284,7 @@ export const PRODUCTS = [
   {
     "id": "viril",
     "name": "VIRIL",
-    "tagline": "JPG — Le Male",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -306,7 +306,7 @@ export const PRODUCTS = [
   {
     "id": "ultra-viril",
     "name": "ULTRA VIRIL",
-    "tagline": "JPG — Ultra Male",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -328,7 +328,7 @@ export const PRODUCTS = [
   {
     "id": "scandal",
     "name": "SCANDAL",
-    "tagline": "JPG — Scandal Pour Homme",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -350,7 +350,7 @@ export const PRODUCTS = [
   {
     "id": "booster",
     "name": "BOOSTER",
-    "tagline": "Lacoste — Booster",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -372,7 +372,7 @@ export const PRODUCTS = [
   {
     "id": "blanc",
     "name": "BLANC",
-    "tagline": "Lacoste — Lacoste Blanc",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -394,7 +394,7 @@ export const PRODUCTS = [
   {
     "id": "legendaire",
     "name": "LEGENDAIRE",
-    "tagline": "Montblanc — Legend",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -416,7 +416,7 @@ export const PRODUCTS = [
   {
     "id": "noirsx",
     "name": "NOIRSX",
-    "tagline": "Paco Rabanne — Black XS",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -438,7 +438,7 @@ export const PRODUCTS = [
   {
     "id": "dollars",
     "name": "DOLLARS",
-    "tagline": "Paco Rabanne — 1 Million",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -460,7 +460,7 @@ export const PRODUCTS = [
   {
     "id": "invicts",
     "name": "INVICTS",
-    "tagline": "Paco Rabanne — Invictus",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -482,7 +482,7 @@ export const PRODUCTS = [
   {
     "id": "spice",
     "name": "SPICE",
-    "tagline": "Viktor & Rolf — Spicebomb",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -504,7 +504,7 @@ export const PRODUCTS = [
   {
     "id": "night-men",
     "name": "NIGHT MEN",
-    "tagline": "YSL — La Nuit de L’Homme",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -526,7 +526,7 @@ export const PRODUCTS = [
   {
     "id": "bodyko",
     "name": "BODYKO",
-    "tagline": "YSL — Body Kouros",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -548,7 +548,7 @@ export const PRODUCTS = [
   {
     "id": "men-intense",
     "name": "MEN INTENSE",
-    "tagline": "YSL — L’Homme Intense",
+    "tagline": "Création boisé aromatique pour homme",
     "family": "Boisé Aromatique",
     "notes": {
       "tete": [],
@@ -570,7 +570,7 @@ export const PRODUCTS = [
   {
     "id": "girly",
     "name": "GIRLY",
-    "tagline": "Carolina Herrera — Good Girl",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -592,7 +592,7 @@ export const PRODUCTS = [
   {
     "id": "amoramo",
     "name": "AMORAMO",
-    "tagline": "Cacharel — Amor Amor",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -614,7 +614,7 @@ export const PRODUCTS = [
   {
     "id": "melle",
     "name": "MELLE",
-    "tagline": "Chanel — Coco Mademoiselle",
+    "tagline": "Création gourmand pour femme",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -636,7 +636,7 @@ export const PRODUCTS = [
   {
     "id": "coco",
     "name": "COCO",
-    "tagline": "Chanel — Coco Chanel",
+    "tagline": "Création gourmand pour femme",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -658,7 +658,7 @@ export const PRODUCTS = [
   {
     "id": "class-5",
     "name": "CLASS 5",
-    "tagline": "Chanel — Chanel N°5",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -680,7 +680,7 @@ export const PRODUCTS = [
   {
     "id": "tendre",
     "name": "TENDRE",
-    "tagline": "Chanel — Chance Eau Tendre",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -702,7 +702,7 @@ export const PRODUCTS = [
   {
     "id": "loe",
     "name": "LOÉ",
-    "tagline": "Chloé — Chloé",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -724,7 +724,7 @@ export const PRODUCTS = [
   {
     "id": "i-love-it",
     "name": "I LOVE IT",
-    "tagline": "Dior — J’adore",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -746,7 +746,7 @@ export const PRODUCTS = [
   {
     "id": "hypnotic",
     "name": "HYPNOTIC",
-    "tagline": "Dior — Hypnotic Poison",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -768,7 +768,7 @@ export const PRODUCTS = [
   {
     "id": "toxic-girl",
     "name": "TOXIC GIRL",
-    "tagline": "Dior — Poison Girl",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -790,7 +790,7 @@ export const PRODUCTS = [
   {
     "id": "miss",
     "name": "MISS",
-    "tagline": "Dior — Miss Chérie",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -812,7 +812,7 @@ export const PRODUCTS = [
   {
     "id": "imperatrice",
     "name": "IMPERATRICE",
-    "tagline": "D&G — L’Impératrice",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -834,7 +834,7 @@ export const PRODUCTS = [
   {
     "id": "is",
     "name": "IS",
-    "tagline": "Armani — Sì",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -856,7 +856,7 @@ export const PRODUCTS = [
   {
     "id": "the-way",
     "name": "THE WAY",
-    "tagline": "Armani — My Way",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -878,7 +878,7 @@ export const PRODUCTS = [
   {
     "id": "irresistible",
     "name": "IRRESISTIBLE",
-    "tagline": "Givenchy — Very Irresistible",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -900,7 +900,7 @@ export const PRODUCTS = [
   {
     "id": "couture",
     "name": "COUTURE",
-    "tagline": "Givenchy — Hot Couture",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -922,7 +922,7 @@ export const PRODUCTS = [
   {
     "id": "illicite",
     "name": "ILLICITE",
-    "tagline": "Givenchy — L’Interdit",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -944,7 +944,7 @@ export const PRODUCTS = [
   {
     "id": "flora",
     "name": "FLORA",
-    "tagline": "Gucci — Flora",
+    "tagline": "Création floral pour femme",
     "family": "Floral",
     "notes": {
       "tete": [],
@@ -966,7 +966,7 @@ export const PRODUCTS = [
   {
     "id": "robe",
     "name": "ROBE",
-    "tagline": "Guerlain — La Petite Robe Noire",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -988,7 +988,7 @@ export const PRODUCTS = [
   {
     "id": "audace",
     "name": "AUDACE",
-    "tagline": "Guerlain — Insolence",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1010,7 +1010,7 @@ export const PRODUCTS = [
   {
     "id": "merveilles",
     "name": "MERVEILLES",
-    "tagline": "Hermès — Eau des Merveilles",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1032,7 +1032,7 @@ export const PRODUCTS = [
   {
     "id": "nuit-b",
     "name": "Nuit B",
-    "tagline": "Hugo Boss — Boss Nuit",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1054,7 +1054,7 @@ export const PRODUCTS = [
   {
     "id": "nefertiti",
     "name": "NEFERTITI",
-    "tagline": "JPG — Scandal Pour Femme",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1076,7 +1076,7 @@ export const PRODUCTS = [
   {
     "id": "s-absolu",
     "name": "S.ABSOLU",
-    "tagline": "JPG — Scandal Absolu",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1098,7 +1098,7 @@ export const PRODUCTS = [
   {
     "id": "flower",
     "name": "FLOWER",
-    "tagline": "Kenzo — Flower",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1120,7 +1120,7 @@ export const PRODUCTS = [
   {
     "id": "diamant-noir",
     "name": "DIAMANT NOIR",
-    "tagline": "Lancôme — La Nuit Trésor",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1142,7 +1142,7 @@ export const PRODUCTS = [
   {
     "id": "bella-vita",
     "name": "BELLA VITA",
-    "tagline": "Lancôme — La Vie Est Belle",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1164,7 +1164,7 @@ export const PRODUCTS = [
   {
     "id": "her",
     "name": "HER",
-    "tagline": "Narciso Rodriguez — For Her",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1186,7 +1186,7 @@ export const PRODUCTS = [
   {
     "id": "poudree",
     "name": "POUDRÉE",
-    "tagline": "Narciso Rodriguez — Poudrée",
+    "tagline": "Création oriental boisé pour femme",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -1208,7 +1208,7 @@ export const PRODUCTS = [
   {
     "id": "ambree",
     "name": "AMBRÉE",
-    "tagline": "Narciso Rodriguez — Ambrée",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1230,7 +1230,7 @@ export const PRODUCTS = [
   {
     "id": "nani",
     "name": "NANI",
-    "tagline": "Nina Ricci — Nina",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1252,7 +1252,7 @@ export const PRODUCTS = [
   {
     "id": "lady",
     "name": "LADY",
-    "tagline": "Paco Rabanne — Lady Million",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1274,7 +1274,7 @@ export const PRODUCTS = [
   {
     "id": "olympe",
     "name": "OLYMPE",
-    "tagline": "Paco Rabanne — Olympea",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1296,7 +1296,7 @@ export const PRODUCTS = [
   {
     "id": "faming",
     "name": "FAMING",
-    "tagline": "Paco Rabanne — Fame",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1318,7 +1318,7 @@ export const PRODUCTS = [
   {
     "id": "noirxs-g",
     "name": "NOIRXS G",
-    "tagline": "Paco Rabanne — Black XS For Her",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1340,7 +1340,7 @@ export const PRODUCTS = [
   {
     "id": "extravagance",
     "name": "EXTRAVAGANCE",
-    "tagline": "Prada — Paradoxe",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1362,7 +1362,7 @@ export const PRODUCTS = [
   {
     "id": "neila",
     "name": "NEILA",
-    "tagline": "Mugler — Alien",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1384,7 +1384,7 @@ export const PRODUCTS = [
   {
     "id": "candy",
     "name": "CANDY",
-    "tagline": "Viktor & Rolf — Bonbon",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1406,7 +1406,7 @@ export const PRODUCTS = [
   {
     "id": "coconut",
     "name": "COCONUT",
-    "tagline": "Victoria’s Secret — Coconut Passion",
+    "tagline": "Création gourmand pour femme",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -1428,7 +1428,7 @@ export const PRODUCTS = [
   {
     "id": "black-tease",
     "name": "BLACK TEASE",
-    "tagline": "Victoria’s Secret — Tease Noir",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1450,7 +1450,7 @@ export const PRODUCTS = [
   {
     "id": "blacko",
     "name": "BLACKO",
-    "tagline": "YSL — Black Opium",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1472,7 +1472,7 @@ export const PRODUCTS = [
   {
     "id": "paname",
     "name": "PANAME",
-    "tagline": "YSL — Mon Paris",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1494,7 +1494,7 @@ export const PRODUCTS = [
   {
     "id": "liberty",
     "name": "LIBERTY",
-    "tagline": "YSL — Libre",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1516,7 +1516,7 @@ export const PRODUCTS = [
   {
     "id": "manife",
     "name": "MANIFE",
-    "tagline": "YSL — Manifesto",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1538,7 +1538,7 @@ export const PRODUCTS = [
   {
     "id": "this-is-her",
     "name": "THIS IS HER",
-    "tagline": "Zadig & Voltaire — This Is Her!",
+    "tagline": "Création floral oriental pour femme",
     "family": "Floral Oriental",
     "notes": {
       "tete": [],
@@ -1560,7 +1560,7 @@ export const PRODUCTS = [
   {
     "id": "aisha",
     "name": "AISHA",
-    "tagline": "Al-Jazeera — Magic",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1582,7 +1582,7 @@ export const PRODUCTS = [
   {
     "id": "silk",
     "name": "SILK",
-    "tagline": "Ajmal — Silk Musc",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -1604,7 +1604,7 @@ export const PRODUCTS = [
   {
     "id": "solid",
     "name": "SOLID",
-    "tagline": "Arabian Oud — Solid",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1626,7 +1626,7 @@ export const PRODUCTS = [
   {
     "id": "mada",
     "name": "MADA",
-    "tagline": "Arabian Oud — Madawi",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1648,7 +1648,7 @@ export const PRODUCTS = [
   {
     "id": "blue-majic",
     "name": "BLUE MAJIC",
-    "tagline": "Arabian Oud — Crazy Moody",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1670,7 +1670,7 @@ export const PRODUCTS = [
   {
     "id": "mada-gold",
     "name": "MADA GOLD",
-    "tagline": "Arabian Oud — Madawi Gold",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1692,7 +1692,7 @@ export const PRODUCTS = [
   {
     "id": "arabian-rose",
     "name": "ARABIAN ROSE",
-    "tagline": "Armani Privé — Rose d’Arabie",
+    "tagline": "Création floral de la Collection Privée",
     "family": "Floral",
     "notes": {
       "tete": [],
@@ -1714,7 +1714,7 @@ export const PRODUCTS = [
   {
     "id": "rouge-mala",
     "name": "ROUGE MALA",
-    "tagline": "Armani Privé — Rouge Malachite",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1736,7 +1736,7 @@ export const PRODUCTS = [
   {
     "id": "lazuli",
     "name": "LAZULI",
-    "tagline": "Armani Privé — Bleu Lazuli",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1758,7 +1758,7 @@ export const PRODUCTS = [
   {
     "id": "sucre-noir",
     "name": "SUCRE NOIR",
-    "tagline": "Arte Profumi — Sucre Noir",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -1780,7 +1780,7 @@ export const PRODUCTS = [
   {
     "id": "hayati",
     "name": "HAYATI",
-    "tagline": "Attar Collection — Hayati",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1802,7 +1802,7 @@ export const PRODUCTS = [
   {
     "id": "charnel",
     "name": "CHARNEL",
-    "tagline": "BDK — Gris Charnel",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1824,7 +1824,7 @@ export const PRODUCTS = [
   {
     "id": "street-n9",
     "name": "STREET N9",
-    "tagline": "Bond No. 9 — Bleecker Street",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1846,7 +1846,7 @@ export const PRODUCTS = [
   {
     "id": "tygar",
     "name": "TYGAR",
-    "tagline": "Bvlgari — Tygar",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1868,7 +1868,7 @@ export const PRODUCTS = [
   {
     "id": "chaotiq",
     "name": "CHAOTIQ",
-    "tagline": "Byredo — Rouge Chaotique",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1890,7 +1890,7 @@ export const PRODUCTS = [
   {
     "id": "mula",
     "name": "MULA",
-    "tagline": "Byron — Mula Mula",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1912,7 +1912,7 @@ export const PRODUCTS = [
   {
     "id": "gourmand-extreme",
     "name": "GOURMAND EXTREME",
-    "tagline": "Byron — The Chronic",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -1934,7 +1934,7 @@ export const PRODUCTS = [
   {
     "id": "sultan",
     "name": "SULTAN",
-    "tagline": "Byron — The Chronic Blue",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1956,7 +1956,7 @@ export const PRODUCTS = [
   {
     "id": "dragon",
     "name": "DRAGON",
-    "tagline": "Byron — Black Dragon",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -1978,7 +1978,7 @@ export const PRODUCTS = [
   {
     "id": "butterfly",
     "name": "BUTTERFLY",
-    "tagline": "Byron — Green Butterfly",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2000,7 +2000,7 @@ export const PRODUCTS = [
   {
     "id": "oud-malaki",
     "name": "OUD MALAKI",
-    "tagline": "Chopard — Oud Malaki",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2022,7 +2022,7 @@ export const PRODUCTS = [
   {
     "id": "event-absolu",
     "name": "EVENT ABSOLU",
-    "tagline": "Creed — Aventus Absolu",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2044,7 +2044,7 @@ export const PRODUCTS = [
   {
     "id": "virgin",
     "name": "VIRGIN",
-    "tagline": "Creed — Virgin Island Water",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2066,7 +2066,7 @@ export const PRODUCTS = [
   {
     "id": "event",
     "name": "EVENT",
-    "tagline": "Creed — Aventus",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2088,7 +2088,7 @@ export const PRODUCTS = [
   {
     "id": "bois",
     "name": "BOIS",
-    "tagline": "Dior — Bois d’Argent",
+    "tagline": "Création boisé de la Collection Privée",
     "family": "Boisé",
     "notes": {
       "tete": [],
@@ -2110,7 +2110,7 @@ export const PRODUCTS = [
   {
     "id": "bois-intense",
     "name": "BOIS INTENSE",
-    "tagline": "Dior — Bois Intense",
+    "tagline": "Création boisé de la Collection Privée",
     "family": "Boisé",
     "notes": {
       "tete": [],
@@ -2132,7 +2132,7 @@ export const PRODUCTS = [
   {
     "id": "gris",
     "name": "GRIS",
-    "tagline": "Dior — Gris Montaigne",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2154,7 +2154,7 @@ export const PRODUCTS = [
   {
     "id": "ambre",
     "name": "AMBRE",
-    "tagline": "Dior — Ambre Nuit",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2176,7 +2176,7 @@ export const PRODUCTS = [
   {
     "id": "trafalgar",
     "name": "TRAFALGAR",
-    "tagline": "Dior — Rouge Trafalgar",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2198,7 +2198,7 @@ export const PRODUCTS = [
   {
     "id": "saku",
     "name": "SAKU",
-    "tagline": "Dior — Sakura",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2220,7 +2220,7 @@ export const PRODUCTS = [
   {
     "id": "colle",
     "name": "COLLE",
-    "tagline": "Dior — La Colle Noire",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2242,7 +2242,7 @@ export const PRODUCTS = [
   {
     "id": "velvet-oud",
     "name": "VELVET OUD",
-    "tagline": "D&G — Velvet Desert Oud",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2264,7 +2264,7 @@ export const PRODUCTS = [
   {
     "id": "nectar-d-or",
     "name": "NECTAR D'Or",
-    "tagline": "Dubaï — Nectar d’Or",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2286,7 +2286,7 @@ export const PRODUCTS = [
   {
     "id": "silver",
     "name": "SILVER",
-    "tagline": "Dubaï — Nectar Silver",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2308,7 +2308,7 @@ export const PRODUCTS = [
   {
     "id": "fraise-delices",
     "name": "FRAISE DÉLICES",
-    "tagline": "Dubaï — Délice Fraise",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2330,7 +2330,7 @@ export const PRODUCTS = [
   {
     "id": "musk-tahara",
     "name": "MUSK TAHARA",
-    "tagline": "Dubaï — Musk Blanc / Musk Tahara",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2352,7 +2352,7 @@ export const PRODUCTS = [
   {
     "id": "musk-blanc-vanille",
     "name": "MUSK BLANC VANILLÉ",
-    "tagline": "Dubaï — Musk Blanc Vanillé",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2374,7 +2374,7 @@ export const PRODUCTS = [
   {
     "id": "sucre-rose",
     "name": "SUCRE ROSE",
-    "tagline": "Dubaï — Sucre Rose",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -2396,7 +2396,7 @@ export const PRODUCTS = [
   {
     "id": "caramelo",
     "name": "CARAMELO",
-    "tagline": "Dubaï — Vanille & Pistache",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -2418,7 +2418,7 @@ export const PRODUCTS = [
   {
     "id": "panacco",
     "name": "PANACCO",
-    "tagline": "Fomowa — Panna Cotta",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2440,7 +2440,7 @@ export const PRODUCTS = [
   {
     "id": "rouge-240",
     "name": "ROUGE 240",
-    "tagline": "MFK — Baccarat Rouge 540",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2462,7 +2462,7 @@ export const PRODUCTS = [
   {
     "id": "rouge-240-intense",
     "name": "ROUGE 240 INTENSE",
-    "tagline": "MFK — Baccarat Intense",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2484,7 +2484,7 @@ export const PRODUCTS = [
   {
     "id": "oud-satin",
     "name": "OUD SATIN",
-    "tagline": "MFK — Oud Satin Mood",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2506,7 +2506,7 @@ export const PRODUCTS = [
   {
     "id": "matin",
     "name": "MATIN",
-    "tagline": "MFK — Petit Matin",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2528,7 +2528,7 @@ export const PRODUCTS = [
   {
     "id": "acqua-forte",
     "name": "ACQUA FORTE",
-    "tagline": "MFK — Aqua Media Forte",
+    "tagline": "Création hespéridé frais de la Collection Privée",
     "family": "Hespéridé Frais",
     "notes": {
       "tete": [],
@@ -2550,7 +2550,7 @@ export const PRODUCTS = [
   {
     "id": "soir-de-paris",
     "name": "SOIR DE PARIS",
-    "tagline": "MFK — Grand Soir",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2572,7 +2572,7 @@ export const PRODUCTS = [
   {
     "id": "ravageur",
     "name": "RAVAGEUR",
-    "tagline": "Frédéric Malle — Musc Ravageur",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2594,7 +2594,7 @@ export const PRODUCTS = [
   {
     "id": "portrait",
     "name": "PORTRAIT",
-    "tagline": "Frédéric Malle — Portrait of a Lady",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2616,7 +2616,7 @@ export const PRODUCTS = [
   {
     "id": "latte",
     "name": "LATTE",
-    "tagline": "Giardini di Toscana — Bianco Latte",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2638,7 +2638,7 @@ export const PRODUCTS = [
   {
     "id": "beluga",
     "name": "BELUGA",
-    "tagline": "Guerlain — Cuir Béluga",
+    "tagline": "Création boisé de la Collection Privée",
     "family": "Boisé",
     "notes": {
       "tete": [],
@@ -2660,7 +2660,7 @@ export const PRODUCTS = [
   {
     "id": "oud-cherry",
     "name": "OUD CHERRY",
-    "tagline": "Guerlain — Cherry Oud",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2682,7 +2682,7 @@ export const PRODUCTS = [
   {
     "id": "ahojas",
     "name": "AHOJAS",
-    "tagline": "Hind Al Oud — Ahojas",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2704,7 +2704,7 @@ export const PRODUCTS = [
   {
     "id": "greatness",
     "name": "GREATNESS",
-    "tagline": "Initio — Oud for Greatness",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2726,7 +2726,7 @@ export const PRODUCTS = [
   {
     "id": "myrrh-tonka",
     "name": "MYRRH&TONKA",
-    "tagline": "Jo Malone — Myrrh & Tonka",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -2748,7 +2748,7 @@ export const PRODUCTS = [
   {
     "id": "28-vanilla",
     "name": "28 VANILLA",
-    "tagline": "Kayali — Vanilla 28",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2770,7 +2770,7 @@ export const PRODUCTS = [
   {
     "id": "pistachio",
     "name": "PISTACHIO",
-    "tagline": "Kayali — Yum Pistachio Gelato",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -2792,7 +2792,7 @@ export const PRODUCTS = [
   {
     "id": "utopia",
     "name": "UTOPIA",
-    "tagline": "Kayali — Utopia Vanilla Coco",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -2814,7 +2814,7 @@ export const PRODUCTS = [
   {
     "id": "marchmallow",
     "name": "MARCHMALLOW",
-    "tagline": "Kayali — Yum Boujee Marshmallow",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -2836,7 +2836,7 @@ export const PRODUCTS = [
   {
     "id": "moonlight",
     "name": "MOONLIGHT",
-    "tagline": "Kilian — Moonlight in Heaven",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2858,7 +2858,7 @@ export const PRODUCTS = [
   {
     "id": "love",
     "name": "LOVE",
-    "tagline": "Kilian — Love, Don’t Be Shy",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2880,7 +2880,7 @@ export const PRODUCTS = [
   {
     "id": "rolling",
     "name": "ROLLING",
-    "tagline": "Kilian — Rolling in Love",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2902,7 +2902,7 @@ export const PRODUCTS = [
   {
     "id": "gone-bad",
     "name": "GONE BAD",
-    "tagline": "Kilian — Good Girl Gone Bad Extreme",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2924,7 +2924,7 @@ export const PRODUCTS = [
   {
     "id": "khamrah",
     "name": "KHAMRAH",
-    "tagline": "Kilian/Lattafa — Angels’ Share",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2946,7 +2946,7 @@ export const PRODUCTS = [
   {
     "id": "smoking",
     "name": "SMOKING",
-    "tagline": "Kilian — Smoking Hot",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2968,7 +2968,7 @@ export const PRODUCTS = [
   {
     "id": "krypto",
     "name": "KRYPTO",
-    "tagline": "Khalil T. — Kryptonite",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -2990,7 +2990,7 @@ export const PRODUCTS = [
   {
     "id": "french-kiss",
     "name": "FRENCH KISS",
-    "tagline": "Khalil T. — French Kiss",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3012,7 +3012,7 @@ export const PRODUCTS = [
   {
     "id": "33-santal",
     "name": "33 SANTAL",
-    "tagline": "Le Labo — Santal 33",
+    "tagline": "Création boisé de la Collection Privée",
     "family": "Boisé",
     "notes": {
       "tete": [],
@@ -3034,7 +3034,7 @@ export const PRODUCTS = [
   {
     "id": "encre-noir",
     "name": "ENCRE NOIR",
-    "tagline": "Lalique — Encre Noire",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3056,7 +3056,7 @@ export const PRODUCTS = [
   {
     "id": "azzezah",
     "name": "AZZEZAH",
-    "tagline": "Lattafa — Azeezah",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3078,7 +3078,7 @@ export const PRODUCTS = [
   {
     "id": "yaara",
     "name": "YAARA",
-    "tagline": "Lattafa — Yara",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3100,7 +3100,7 @@ export const PRODUCTS = [
   {
     "id": "ameerat",
     "name": "AMEERAT",
-    "tagline": "Lattafa — Ameerat Al Arab",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3122,7 +3122,7 @@ export const PRODUCTS = [
   {
     "id": "nomade",
     "name": "NOMADE",
-    "tagline": "Louis Vuitton — Ombre Nomade",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3144,7 +3144,7 @@ export const PRODUCTS = [
   {
     "id": "my-dream",
     "name": "MY DREAM",
-    "tagline": "Louis Vuitton — Attrape-Rêves",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3166,7 +3166,7 @@ export const PRODUCTS = [
   {
     "id": "garden",
     "name": "GARDEN",
-    "tagline": "Louis Vuitton — Cactus Garden",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3188,7 +3188,7 @@ export const PRODUCTS = [
   {
     "id": "afternoon",
     "name": "AFTERNOON",
-    "tagline": "Louis Vuitton — Afternoon Swim",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3210,7 +3210,7 @@ export const PRODUCTS = [
   {
     "id": "imaginaire",
     "name": "IMAGINAIRE",
-    "tagline": "Louis Vuitton — Imagination",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3232,7 +3232,7 @@ export const PRODUCTS = [
   {
     "id": "la-rose-sable",
     "name": "LA ROSE SABLÉ",
-    "tagline": "Louis Vuitton — Les Sables Roses",
+    "tagline": "Création floral de la Collection Privée",
     "family": "Floral",
     "notes": {
       "tete": [],
@@ -3254,7 +3254,7 @@ export const PRODUCTS = [
   {
     "id": "immense",
     "name": "IMMENSE",
-    "tagline": "Louis Vuitton — L’Immensité",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3276,7 +3276,7 @@ export const PRODUCTS = [
   {
     "id": "accro-a-la-vanille",
     "name": "ACCRO À LA VANILLE",
-    "tagline": "Maison Jousset — Accident À La Vanille",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -3298,7 +3298,7 @@ export const PRODUCTS = [
   {
     "id": "kobraa",
     "name": "KOBRAA",
-    "tagline": "Maison Margiela — Sweet Venin",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3320,7 +3320,7 @@ export const PRODUCTS = [
   {
     "id": "creme-brulee",
     "name": "CREME BRÛLÉE",
-    "tagline": "Maison Mataha — Escapade Gourmande",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -3342,7 +3342,7 @@ export const PRODUCTS = [
   {
     "id": "rose-vanille",
     "name": "ROSE&VANILLE",
-    "tagline": "Mancera — Roses Vanille",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -3364,7 +3364,7 @@ export const PRODUCTS = [
   {
     "id": "coco-vanilla",
     "name": "COCO VANILLA",
-    "tagline": "Mancera — Coco Vanille",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -3386,7 +3386,7 @@ export const PRODUCTS = [
   {
     "id": "anymede",
     "name": "ANYMEDE",
-    "tagline": "Marc-Antoine Barrois — Ganymede Extrait",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3408,7 +3408,7 @@ export const PRODUCTS = [
   {
     "id": "daisy",
     "name": "DAISY",
-    "tagline": "Marc Jacobs — Daisy",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3430,7 +3430,7 @@ export const PRODUCTS = [
   {
     "id": "jazz-night",
     "name": "JAZZ NIGHT",
-    "tagline": "Maison Margiela — Replica - Jazz Club",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3452,7 +3452,7 @@ export const PRODUCTS = [
   {
     "id": "tonka-arabic",
     "name": "TONKA ARABIC",
-    "tagline": "Montale — Arabians Tonka",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -3474,7 +3474,7 @@ export const PRODUCTS = [
   {
     "id": "ani",
     "name": "ANI",
-    "tagline": "Nishane — Ani",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3496,7 +3496,7 @@ export const PRODUCTS = [
   {
     "id": "sweet-desire",
     "name": "SWEET DESIRE",
-    "tagline": "Nishane — Hundred Silent Ways",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3518,7 +3518,7 @@ export const PRODUCTS = [
   {
     "id": "first-class",
     "name": "FIRST CLASS",
-    "tagline": "Nobile 1942 — La Danza delle Libellules",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3540,7 +3540,7 @@ export const PRODUCTS = [
   {
     "id": "maestro",
     "name": "MAESTRO",
-    "tagline": "Nobile 1942 — Capriccio del Maestro",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3562,7 +3562,7 @@ export const PRODUCTS = [
   {
     "id": "pegaz",
     "name": "PEGAZ",
-    "tagline": "Parfums de Marly — Pegasus",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3584,7 +3584,7 @@ export const PRODUCTS = [
   {
     "id": "delina",
     "name": "DELINA",
-    "tagline": "Parfums de Marly — Delina",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3606,7 +3606,7 @@ export const PRODUCTS = [
   {
     "id": "liquide-brun",
     "name": "LIQUIDE BRUN",
-    "tagline": "Parfums de Marly — Althaïr",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3628,7 +3628,7 @@ export const PRODUCTS = [
   {
     "id": "born-in-roma",
     "name": "BORN IN ROMA",
-    "tagline": "Prada — Uomo Born In Roma",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3650,7 +3650,7 @@ export const PRODUCTS = [
   {
     "id": "sucre-d-orient",
     "name": "SUCRE D'ORIENT",
-    "tagline": "Rasasi — Ebhar",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -3672,7 +3672,7 @@ export const PRODUCTS = [
   {
     "id": "rs5",
     "name": "RS5",
-    "tagline": "Rosendo Mateu — No. 5",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3694,7 +3694,7 @@ export const PRODUCTS = [
   {
     "id": "fresh-oud",
     "name": "FRESH OUD",
-    "tagline": "Rosendo Mateu — Fresh Oud",
+    "tagline": "Création oriental boisé de la Collection Privée",
     "family": "Oriental Boisé",
     "notes": {
       "tete": [],
@@ -3716,7 +3716,7 @@ export const PRODUCTS = [
   {
     "id": "on-fire",
     "name": "ON FIRE",
-    "tagline": "Stéphane Humbert Lucas — God of Fire",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3738,7 +3738,7 @@ export const PRODUCTS = [
   {
     "id": "venom",
     "name": "VENOM",
-    "tagline": "Stéphane Humbert Lucas — Venom Incarnat",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3760,7 +3760,7 @@ export const PRODUCTS = [
   {
     "id": "golden-powder",
     "name": "GOLDEN POWDER",
-    "tagline": "The House of Oud — Golden Powder",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3782,7 +3782,7 @@ export const PRODUCTS = [
   {
     "id": "casanova",
     "name": "CASANOVA",
-    "tagline": "Tiziana Terenzi — Kirke",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3804,7 +3804,7 @@ export const PRODUCTS = [
   {
     "id": "cherry",
     "name": "CHERRY",
-    "tagline": "Tom Ford — Lost Cherry",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -3826,7 +3826,7 @@ export const PRODUCTS = [
   {
     "id": "neige",
     "name": "NEIGE",
-    "tagline": "Tom Ford — Soleil Neige",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3848,7 +3848,7 @@ export const PRODUCTS = [
   {
     "id": "fabulous",
     "name": "FABULOUS",
-    "tagline": "Tom Ford — Fucking Fabulous",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3870,7 +3870,7 @@ export const PRODUCTS = [
   {
     "id": "blanc-soleil",
     "name": "BLANC SOLEIL",
-    "tagline": "Tom Ford — Soleil Blanc",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3892,7 +3892,7 @@ export const PRODUCTS = [
   {
     "id": "leather",
     "name": "LEATHER",
-    "tagline": "Tom Ford — Ombré Leather",
+    "tagline": "Création boisé de la Collection Privée",
     "family": "Boisé",
     "notes": {
       "tete": [],
@@ -3914,7 +3914,7 @@ export const PRODUCTS = [
   {
     "id": "tobacco",
     "name": "TOBACCO",
-    "tagline": "Tom Ford — Tobacco Vanille",
+    "tagline": "Création gourmand de la Collection Privée",
     "family": "Gourmand",
     "notes": {
       "tete": [],
@@ -3936,7 +3936,7 @@ export const PRODUCTS = [
   {
     "id": "erbaggi",
     "name": "ERBAGGI",
-    "tagline": "Xerjoff — Erba Pura",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -3958,7 +3958,7 @@ export const PRODUCTS = [
   {
     "id": "narcos",
     "name": "NARCOS",
-    "tagline": "Ex Nihilo — Fleur Narcotique",
+    "tagline": "Création floral de la Collection Privée",
     "family": "Floral",
     "notes": {
       "tete": [],
@@ -3980,7 +3980,7 @@ export const PRODUCTS = [
   {
     "id": "l-addiction",
     "name": "L'ADDICTION",
-    "tagline": "Ulyka — Nota Sugar",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -4002,7 +4002,7 @@ export const PRODUCTS = [
   {
     "id": "aramis",
     "name": "ARAMIS",
-    "tagline": "V Canto — Stricnina",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],
@@ -4024,7 +4024,7 @@ export const PRODUCTS = [
   {
     "id": "bois-d-iris",
     "name": "BOIS D'IRIS",
-    "tagline": "Van Cleef & Arpels — Bois d’Iris",
+    "tagline": "Création boisé de la Collection Privée",
     "family": "Boisé",
     "notes": {
       "tete": [],
@@ -4046,7 +4046,7 @@ export const PRODUCTS = [
   {
     "id": "supreme",
     "name": "SUPREME",
-    "tagline": "YSL — Supreme Bouquet",
+    "tagline": "Création oriental mixte de la Collection Privée",
     "family": "Oriental Mixte",
     "notes": {
       "tete": [],

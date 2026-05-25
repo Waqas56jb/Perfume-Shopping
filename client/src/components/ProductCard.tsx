@@ -188,8 +188,13 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         <h3 className="font-sans text-[13px] tracking-elegant uppercase font-semibold text-ink-900">
           {product.name}
         </h3>
+        {/* ⚠ IP RULE: never render `product.tagline` here — historical
+            DB rows still contain "Brand — Original" strings that the
+            customer must never see. Showing the olfactory family +
+            audience is the public-safe substitute. */}
         <p className="text-[11.5px] text-ink-300 mt-1 leading-snug line-clamp-2 min-h-[28px]">
-          {product.tagline}
+          {product.family}
+          {product.gender === 'F' ? ' · Femme' : product.gender === 'H' ? ' · Homme' : ' · Mixte'}
         </p>
 
         <div className="mt-3 flex flex-wrap gap-1">

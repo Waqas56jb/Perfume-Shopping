@@ -185,10 +185,25 @@ const SHOP = 'https://eleganza-parfums.com';
 
 `;
 
+/* ⚠ INTELLECTUAL PROPERTY RULE:
+   The `tagline` field is rendered on customer-facing product cards. It
+   MUST NEVER contain the original brand (Lancôme, Dior, MFK, etc.).
+   The original brand+parfum stay ONLY in:
+     - the DUPE_MAP triggers (server-side, never displayed)
+     - the FORBIDDEN_TERMS list (redaction safety-net)
+     - server/data/realCatalog.json (the source of truth, not exposed)
+   We use a neutral "Création {family} pour {audience}" sentence instead. */
+function neutralTagline(it) {
+  const family = inferFamily(it);
+  if (it.gender === 'H') return `Création ${family.toLowerCase()} pour homme`;
+  if (it.gender === 'F') return `Création ${family.toLowerCase()} pour femme`;
+  return `Création ${family.toLowerCase()} de la Collection Privée`;
+}
+
 const ksbProducts = `export const PRODUCTS = ${JSON.stringify(items.map((it) => ({
   id: it.slug,
   name: it.code_site,
-  tagline: `${it.marque} — ${it.parfum}`.replace(/'/g, '’'),
+  tagline: neutralTagline(it),
   family: inferFamily(it),
   notes: { tete: [], coeur: [], fond: [] },
   gender: it.gender,
@@ -236,7 +251,10 @@ console.log('✓ wrote server/knowledgeBase.js');
  * ═══════════════════════════════════════════════════════════════════════ */
 const sqlValues = items.map((it) => {
   const name    = sqlEscape(it.code_site);
-  const tagline = sqlEscape(`${it.marque} — ${it.parfum}`);
+  // ⚠ NEVER write the original brand/parfum into the tagline column —
+  // it would surface on customer-facing product cards. Brand info stays
+  // only in dupe_mappings.triggers (server-side, hidden).
+  const tagline = sqlEscape(neutralTagline(it));
   const family  = sqlEscape(inferFamily(it));
   const gender  = it.gender;
   const url     = sqlEscape(urlFor(it));

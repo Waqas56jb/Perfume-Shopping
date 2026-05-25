@@ -354,7 +354,10 @@ function ProductCard({ product: p, onEdit, onDelete }: { product: Product; onEdi
         </div>
       </div>
 
-      {p.tagline && <p className="text-[12.5px] text-neutral-600 italic leading-snug mb-3 line-clamp-2">{p.tagline}</p>}
+      {/* ⚠ IP RULE: never render `p.tagline` here either. Even on the
+          admin catalogue, surfacing legacy "Brand — Original" strings
+          risks them being screen-shared or screen-shot. The owner can
+          inspect dupe sources via the Mappages cachés page. */}
 
       <div className="space-y-1.5 text-[11.5px] mb-4">
         <NotesRow label="Tête" notes={p.notes_tete} />
@@ -432,10 +435,11 @@ function ProductForm({ value, onChange, onSubmit, onEnsureSlug }: ProductFormPro
           />
         </div>
         <Input
-          label="Slogan / Tagline"
-          placeholder="L'Éclat Royal — sillage solaire et ambré"
+          label="Slogan / Tagline (description neutre uniquement)"
+          placeholder="Création boisée pour homme · sillage solaire et ambré"
           value={value.tagline || ''}
           onChange={(e) => set({ tagline: e.target.value })}
+          hint="⚠ N'écrivez JAMAIS la marque originale (Dior, Chanel, MFK, Lancôme, etc.). Décrivez l'univers olfactif uniquement."
         />
         <div className="grid grid-cols-2 gap-4">
           <Input
