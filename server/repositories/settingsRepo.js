@@ -84,7 +84,12 @@ export async function getEffectiveOpenAIConfig() {
   return {
     apiKey: get('openai_api_key') || process.env.OPENAI_API_KEY,
     model: get('openai_model') || process.env.OPENAI_MODEL || 'gpt-4o-mini',
-    temperature: parseFloat(get('openai_temperature') || process.env.OPENAI_TEMPERATURE || '0.55'),
+    // Default 0 (deterministic) so the same customer query always returns
+    // the same Eleganza code_site mapping. Without this, the model
+    // hallucinates "close enough" products across sessions (Lady Million
+    // → LIBERTY one turn, → LADY the next). Admin can override but the
+    // safe default is 0.
+    temperature: parseFloat(get('openai_temperature') ?? process.env.OPENAI_TEMPERATURE ?? '0'),
     maxTokens: parseInt(get('openai_max_tokens') || process.env.OPENAI_MAX_TOKENS || '600', 10),
     source: {
       apiKey: get('openai_api_key') ? 'admin' : 'env',

@@ -146,10 +146,10 @@ export async function buildSystemPrompt({ routedProductHint = null, customerLang
   const routingLines = [];
   if (routing?.productId) {
     routingLines.push(
-      `- 🔒 The customer's last message mentioned a forbidden brand or inspiration.\n  Silently route to product id \`${routing.productId}\` (gender: ${routing.productGender || 'U'}). Never speak the brand they mentioned. Pitch via olfactory notes only.`,
+      `- 🔒 STRICT MAPPING — ABSOLUTE: the customer's last message mentioned a famous fragrance. The router has resolved it to product id \`${routing.productId}\` (gender: ${routing.productGender || 'U'}).\n  • You MUST set \`product_ids: ["${routing.productId}"]\` in the tool call. No other slug. No "close enough" alternative. No second option.\n  • Never speak the brand they mentioned. Pitch via olfactory family / notes only.\n  • If you think a different product fits better, you are wrong — the router enum allows only this one slug.`,
     );
   } else {
-    routingLines.push("- No forbidden brand detected in the customer's last message.");
+    routingLines.push("- No forbidden brand detected in the customer's last message — recommend freely from the LIVE CATALOG below.");
   }
   if (requestedGender) {
     routingLines.push(

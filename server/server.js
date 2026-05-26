@@ -352,9 +352,17 @@ app.post('/api/chat', async (req, res) => {
       { role: 'user', content: message },
     ];
 
-    /* OpenAI call — tool enum built from the live catalog */
+    /* OpenAI call — tool enum built from the live catalog.
+       STRICT MAPPING: when the pre-LLM router has a hit, we narrow the
+       product_ids enum to ONLY that one slug, so the model literally
+       cannot pick a "close enough" alternative (Lady Million → LIBERTY,
+       Alien → ILLICITE, etc.). This is the strongest mechanism against
+       hallucination — even with temperature > 0 it can no longer drift. */
     let completion, modelUsed = null;
-    const REPLY_TOOL_DYNAMIC = buildReplyTool(liveProductIds);
+    const enumIds = routingInfo?.productId
+      ? [routingInfo.productId]
+      : liveProductIds;
+    const REPLY_TOOL_DYNAMIC = buildReplyTool(enumIds);
     try {
       const { client, config } = await getOpenAI();
       modelUsed = config.model;

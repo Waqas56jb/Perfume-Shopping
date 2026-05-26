@@ -72,47 +72,96 @@ function buildTriggers(it) {
     const stripped = t.normalize('NFD').replace(/[̀-ͯ]/g, '');
     if (stripped !== t) set.add(stripped);
   };
-  add(`${it.marque} ${it.parfum}`);
+  /* Strip leading articles ("La Nuit Trésor" → "Nuit Trésor") and trailing
+     plural-S typos ("Libellules" → "Libellule"). Customer rarely types
+     "La Nuit Trésor Lancôme" verbatim — they shortcut to "Nuit Trésor".
+     Without this, the regex word-boundary match fails. */
+  const stripArticle = (s) => s.replace(/^(la|le|les|l'|l'|the|il|lo|gli)\s+/i, '');
+  const stripPluralS = (s) => s.replace(/s\b/i, '');
+
+  const brandParfum = `${it.marque} ${it.parfum}`;
+  add(brandParfum);
+  add(brandParfum.replace(/['']/g, ''));
+  add(brandParfum.replace(/['']/g, ' '));
+
   add(it.parfum);
-  // Without apostrophes (so "l'interdit" also matches "linterdit")
   add(it.parfum.replace(/['']/g, ''));
-  add(`${it.marque} ${it.parfum}`.replace(/['']/g, ''));
-  // Apostrophe-as-space (so "l'interdit" also matches "l interdit")
   add(it.parfum.replace(/['']/g, ' '));
-  add(`${it.marque} ${it.parfum}`.replace(/['']/g, ' '));
-  return [...set].slice(0, 10);
+
+  // Article-stripped: "La Nuit Trésor" → "Nuit Trésor"
+  const noArticle = stripArticle(it.parfum);
+  if (noArticle !== it.parfum) {
+    add(noArticle);
+    add(noArticle.replace(/['']/g, ''));
+  }
+  return [...set].slice(0, 14);
 }
 
 /* Known high-traffic aliases (BR540, etc.) — keep server-side ALSO finding
-   these even if the customer omits the brand. Indexed by code_site. */
+   these even if the customer omits the brand. Indexed by code_site.
+   Also covers every routing failure the client reported on 2026-05-26. */
 const EXTRA_TRIGGERS = {
-  'ROUGE 240':         ['br540', 'br 540', 'baccarat 540', 'rouge 540'],
-  'ROUGE 240 INTENSE': ['baccarat intense', 'br540 intense'],
-  'VIRIL':             ['jpg le male', 'gaultier le male', 'le male jpg'],
-  'ULTRA VIRIL':       ['jpg ultra male'],
-  'BLEU':              ['bleu chanel', 'bdc'],
-  'DOLLARS':           ['one million', 'paco 1 million', 'rabanne 1 million'],
-  'INVICTS':           ['paco invictus', 'rabanne invictus'],
-  'BELLA VITA':        ['lancome la vie est belle', 'lancôme la vie est belle'],
-  'EXTRAVAGANCE':      ['prada paradoxe'],
-  'EVENT':             ['creed aventus', 'aventus creed'],
+  /* — Client-reported failures 2026-05-26 — */
+  'DIAMANT NOIR':      ['nuit tresor', 'nuit trésor', 'lancome nuit tresor', 'lancôme nuit trésor'],
+  'LADY':              ['lady million', 'paco lady million', 'rabanne lady million'],
+  'FAMING':            ['paco fame', 'rabanne fame', 'fame paco', 'fame rabanne'],
+  'NEILA':             ['mugler alien', 'alien mugler'],
+  'CANDY':             ['viktor rolf bonbon', 'viktor & rolf bonbon', 'bonbon viktor', 'bonbon vr'],
+  'BLACK TEASE':       ['noir tease', 'tease noir', 'victoria tease', 'victorias tease'],
+  'BLACKO':            ['ysl black opium', 'black opium ysl', 'opium ysl'],
+  'PANAME':            ['mon paris', 'ysl mon paris', 'mon paris ysl'],
+  'SILK':              ['silk', 'ajmal silk', 'silk musc ajmal'],
+  'MADA':              ['madawi', 'arabian oud madawi'],
+  'ROUGE MALA':        ['rouge malachite', 'armani rouge malachite', 'armani prive rouge malachite'],
+  'SULTAN':            ['the chronic blue', 'the chronic bleu', 'chronic blue', 'chronic bleu', 'byron the chronic blue', 'byron the chronic bleu'],
+  'BELUGA':            ['cuir beluga', 'cuir béluga', 'guerlain cuir beluga', 'guerlain cuir béluga'],
+  'GONE BAD':          ['good girl gone bad', 'good girl gone bad extreme', 'gone bad extreme', 'kilian good girl gone bad'],
+  '33 SANTAL':         ['santal 33', 'santal 33 le labo', 'le labo santal', 'le labo santal 33'],
+  'FIRST CLASS':       ['la danza delle libellule', 'la danza delle libellules', 'danza delle libellule', 'danza libellule', 'nobile la danza'],
+  'BORN IN ROMA':      ['uomo born in roma', 'prada uomo born in roma', 'born in roma prada', 'uomo born'],
+  'RS5':               ['rosendo mateu 5', 'rosendo mateu no 5', 'rosendo mateu no. 5', 'rosendo 5', 'rosendo no 5'],
+  'CASANOVA':          ['kirke', 'tiziana kirke', 'tiziana terenzi kirke'],
+  'NEIGE':             ['soleil neige', 'tom ford soleil neige'],
+  'ERBAGGI':           ['erba pura', 'xerjoff erba pura', 'erba pura xerjoff'],
+  "L'ADDICTION":       ['nota sugar', 'ulyka nota sugar', 'nota sugar ulyka'],
+
+  /* — Pre-existing high-traffic aliases — */
+  'ROUGE 240':         ['br540', 'br 540', 'baccarat 540', 'rouge 540', 'baccarat rouge 540', 'baccarat rouge'],
+  'ROUGE 240 INTENSE': ['baccarat intense', 'br540 intense', 'baccarat rouge intense'],
+  'VIRIL':             ['jpg le male', 'gaultier le male', 'le male jpg', 'le male', 'jean paul gaultier le male'],
+  'ULTRA VIRIL':       ['jpg ultra male', 'gaultier ultra male', 'ultra male jpg'],
+  'BLEU':              ['bleu chanel', 'bleu de chanel', 'bdc', 'chanel bleu'],
+  'DOLLARS':           ['one million', '1 million', 'paco 1 million', 'rabanne 1 million', 'paco one million'],
+  'INVICTS':           ['paco invictus', 'rabanne invictus', 'invictus paco'],
+  'BELLA VITA':        ['la vie est belle', 'lancome la vie est belle', 'lancôme la vie est belle'],
+  'EXTRAVAGANCE':      ['prada paradoxe', 'paradoxe prada'],
+  'EVENT':             ['creed aventus', 'aventus creed', 'aventus'],
   'EVENT ABSOLU':      ['aventus absolu', 'creed aventus absolu'],
-  'ON FIRE':           ['shl 777', 'shl777', 'god fire'],
-  'GREATNESS':         ['initio oud for greatness', 'oud greatness'],
-  'NOMADE':            ['louis vuitton ombre nomade', 'lv ombre nomade', 'ombre nomade lv'],
-  'NIGHT MEN':         ['la nuit de lhomme', 'ysl la nuit de l homme'],
-  '33 SANTAL':         ['santal 33 le labo', 'le labo santal'],
-  '28 VANILLA':        ['kayali 28 vanilla', 'vanilla 28 kayali'],
-  'FABULOUS':          ['fucking fabulous', 'tom ford fucking fabulous'],
-  'CHERRY':            ['lost cherry', 'tom ford lost cherry'],
-  'LEATHER':           ['ombre leather', 'tuscan leather', 'tom ford ombre leather'],
-  'TOBACCO':           ['tobacco vanille', 'tom ford tobacco vanille'],
-  'BLACKO':            ['ysl black opium'],
-  'LIBERTY':           ['ysl libre', 'libre ysl'],
-  'I LOVE IT':         ['j adore', 'jadore'],
-  'TOXIC GIRL':        ['dior poison girl'],
-  'BODYKO':            ['ysl body kouros', 'body kouros ysl', 'kouros body'],
-  'CODY':              ['armani code'],
+  'ON FIRE':           ['shl 777', 'shl777', 'god of fire', 'god fire'],
+  'GREATNESS':         ['initio oud for greatness', 'oud for greatness', 'oud greatness'],
+  'NOMADE':            ['ombre nomade', 'louis vuitton ombre nomade', 'lv ombre nomade'],
+  'NIGHT MEN':         ['la nuit de l homme', 'la nuit de lhomme', 'nuit de l homme', 'ysl la nuit de l homme'],
+  '28 VANILLA':        ['vanilla 28', 'kayali vanilla 28', 'kayali 28 vanilla'],
+  'FABULOUS':          ['fucking fabulous', 'tom ford fucking fabulous', 'tf fabulous'],
+  'CHERRY':            ['lost cherry', 'tom ford lost cherry', 'tf lost cherry'],
+  'LEATHER':           ['ombre leather', 'ombré leather', 'tom ford ombre leather'],
+  'TOBACCO':           ['tobacco vanille', 'tom ford tobacco vanille', 'tf tobacco'],
+  'LIBERTY':           ['ysl libre', 'libre ysl', 'libre', 'libre eau de parfum'],
+  'I LOVE IT':         ['j adore', 'jadore', "j'adore", 'dior jadore', 'dior j adore'],
+  'TOXIC GIRL':        ['dior poison girl', 'poison girl', 'poison girl dior'],
+  'BODYKO':            ['ysl body kouros', 'body kouros', 'kouros'],
+  'CODY':              ['armani code', 'code armani'],
+  'MELLE':             ['coco mademoiselle', 'mademoiselle chanel', 'chanel mademoiselle'],
+  'HYPNOTIC':          ['hypnotic poison', 'dior hypnotic poison', 'hypnotic poison dior'],
+  'ILLICITE':          ["l'interdit", 'linterdit', 'l interdit', 'givenchy interdit', 'interdit givenchy'],
+  'MANIFE':            ['manifesto', 'ysl manifesto', 'manifesto ysl'],
+  'OLYMPE':            ['olympea', 'olympéa', 'paco olympea', 'rabanne olympea'],
+  'IS':                ['si armani', 'sì armani', 'armani si', 'armani sì'],
+  'THE WAY':           ['my way armani', 'my way giorgio armani'],
+  'GIRLY':             ['good girl', 'good girl carolina herrera', 'carolina good girl'],
+  'IMAGINAIRE':        ['imagination louis vuitton', 'lv imagination', 'imagination lv'],
+  'IMMENSE':           ['l immensite', 'l immensité', 'limmensite', 'limmensité', 'louis vuitton immensite', 'lv immensite'],
+  'MY DREAM':          ['attrape reves', 'attrape rêves', 'lv attrape reves', 'louis vuitton attrape reves'],
 };
 
 for (const it of items) {

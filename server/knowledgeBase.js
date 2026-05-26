@@ -4087,7 +4087,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "armani code",
-      "code"
+      "code",
+      "code armani"
     ],
     "productId": "cody",
     "productGender": "H"
@@ -4121,7 +4122,8 @@ export const DUPE_MAP = [
       "chanel bleu de chanel",
       "bleu de chanel",
       "bleu chanel",
-      "bdc"
+      "bdc",
+      "chanel bleu"
     ],
     "productId": "bleu",
     "productGender": "H"
@@ -4170,8 +4172,10 @@ export const DUPE_MAP = [
     "triggers": [
       "jpg le male",
       "le male",
+      "male",
       "gaultier le male",
-      "le male jpg"
+      "le male jpg",
+      "jean paul gaultier le male"
     ],
     "productId": "viril",
     "productGender": "H"
@@ -4179,7 +4183,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "jpg ultra male",
-      "ultra male"
+      "ultra male",
+      "gaultier ultra male",
+      "ultra male jpg"
     ],
     "productId": "ultra-viril",
     "productGender": "H"
@@ -4230,7 +4236,8 @@ export const DUPE_MAP = [
       "1 million",
       "one million",
       "paco 1 million",
-      "rabanne 1 million"
+      "rabanne 1 million",
+      "paco one million"
     ],
     "productId": "dollars",
     "productGender": "H"
@@ -4240,7 +4247,8 @@ export const DUPE_MAP = [
       "paco rabanne invictus",
       "invictus",
       "paco invictus",
-      "rabanne invictus"
+      "rabanne invictus",
+      "invictus paco"
     ],
     "productId": "invicts",
     "productGender": "H"
@@ -4256,11 +4264,14 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ysl la nuit de l'homme",
+      "ysl la nuit de lhomme",
+      "ysl la nuit de l homme",
       "la nuit de l'homme",
       "la nuit de lhomme",
-      "ysl la nuit de lhomme",
       "la nuit de l homme",
-      "ysl la nuit de l homme"
+      "nuit de l'homme",
+      "nuit de lhomme",
+      "nuit de l homme"
     ],
     "productId": "night-men",
     "productGender": "H"
@@ -4269,8 +4280,7 @@ export const DUPE_MAP = [
     "triggers": [
       "ysl body kouros",
       "body kouros",
-      "body kouros ysl",
-      "kouros body"
+      "kouros"
     ],
     "productId": "bodyko",
     "productGender": "H"
@@ -4278,11 +4288,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ysl l'homme intense",
+      "ysl lhomme intense",
+      "ysl l homme intense",
       "l'homme intense",
       "lhomme intense",
-      "ysl lhomme intense",
-      "l homme intense",
-      "ysl l homme intense"
+      "l homme intense"
     ],
     "productId": "men-intense",
     "productGender": "H"
@@ -4290,7 +4300,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "carolina herrera good girl",
-      "good girl"
+      "good girl",
+      "good girl carolina herrera",
+      "carolina good girl"
     ],
     "productId": "girly",
     "productGender": "F"
@@ -4306,7 +4318,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "chanel coco mademoiselle",
-      "coco mademoiselle"
+      "coco mademoiselle",
+      "mademoiselle chanel",
+      "chanel mademoiselle"
     ],
     "productId": "melle",
     "productGender": "F"
@@ -4348,11 +4362,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "dior j'adore",
+      "dior jadore",
+      "dior j adore",
       "j'adore",
       "jadore",
-      "dior jadore",
-      "j adore",
-      "dior j adore"
+      "j adore"
     ],
     "productId": "i-love-it",
     "productGender": "F"
@@ -4360,7 +4374,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "dior hypnotic poison",
-      "hypnotic poison"
+      "hypnotic poison",
+      "hypnotic poison dior"
     ],
     "productId": "hypnotic",
     "productGender": "F"
@@ -4368,7 +4383,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "dior poison girl",
-      "poison girl"
+      "poison girl",
+      "poison girl dior"
     ],
     "productId": "toxic-girl",
     "productGender": "F"
@@ -4387,12 +4403,14 @@ export const DUPE_MAP = [
     "triggers": [
       "d&g l'impératrice",
       "d&g l'imperatrice",
+      "d&g limpératrice",
+      "d&g limperatrice",
+      "d&g l impératrice",
+      "d&g l imperatrice",
       "l'impératrice",
       "l'imperatrice",
       "limpératrice",
       "limperatrice",
-      "d&g limpératrice",
-      "d&g limperatrice",
       "l impératrice",
       "l imperatrice"
     ],
@@ -4404,7 +4422,9 @@ export const DUPE_MAP = [
       "armani sì",
       "armani si",
       "sì",
-      "si"
+      "si",
+      "si armani",
+      "sì armani"
     ],
     "productId": "is",
     "productGender": "F"
@@ -4412,7 +4432,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "armani my way",
-      "my way"
+      "my way",
+      "my way armani",
+      "my way giorgio armani"
     ],
     "productId": "the-way",
     "productGender": "F"
@@ -4436,11 +4458,13 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "givenchy l'interdit",
+      "givenchy linterdit",
+      "givenchy l interdit",
       "l'interdit",
       "linterdit",
-      "givenchy linterdit",
       "l interdit",
-      "givenchy l interdit"
+      "givenchy interdit",
+      "interdit givenchy"
     ],
     "productId": "illicite",
     "productGender": "F"
@@ -4456,7 +4480,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "guerlain la petite robe noire",
-      "la petite robe noire"
+      "la petite robe noire",
+      "petite robe noire"
     ],
     "productId": "robe",
     "productGender": "F"
@@ -4515,7 +4540,11 @@ export const DUPE_MAP = [
       "lancôme la nuit trésor",
       "lancome la nuit tresor",
       "la nuit trésor",
-      "la nuit tresor"
+      "la nuit tresor",
+      "nuit trésor",
+      "nuit tresor",
+      "lancome nuit tresor",
+      "lancôme nuit trésor"
     ],
     "productId": "diamant-noir",
     "productGender": "F"
@@ -4524,7 +4553,8 @@ export const DUPE_MAP = [
     "triggers": [
       "lancôme la vie est belle",
       "lancome la vie est belle",
-      "la vie est belle"
+      "la vie est belle",
+      "vie est belle"
     ],
     "productId": "bella-vita",
     "productGender": "F"
@@ -4568,7 +4598,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "paco rabanne lady million",
-      "lady million"
+      "lady million",
+      "paco lady million",
+      "rabanne lady million"
     ],
     "productId": "lady",
     "productGender": "F"
@@ -4576,7 +4608,10 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "paco rabanne olympea",
-      "olympea"
+      "olympea",
+      "olympéa",
+      "paco olympea",
+      "rabanne olympea"
     ],
     "productId": "olympe",
     "productGender": "F"
@@ -4584,7 +4619,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "paco rabanne fame",
-      "fame"
+      "fame",
+      "paco fame",
+      "rabanne fame",
+      "fame paco",
+      "fame rabanne"
     ],
     "productId": "faming",
     "productGender": "F"
@@ -4600,7 +4639,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "prada paradoxe",
-      "paradoxe"
+      "paradoxe",
+      "paradoxe prada"
     ],
     "productId": "extravagance",
     "productGender": "F"
@@ -4608,7 +4648,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "mugler alien",
-      "alien"
+      "alien",
+      "alien mugler"
     ],
     "productId": "neila",
     "productGender": "F"
@@ -4616,7 +4657,10 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "viktor & rolf bonbon",
-      "bonbon"
+      "bonbon",
+      "viktor rolf bonbon",
+      "bonbon viktor",
+      "bonbon vr"
     ],
     "productId": "candy",
     "productGender": "F"
@@ -4624,9 +4668,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "victoria's secret coconut passion",
-      "coconut passion",
       "victorias secret coconut passion",
-      "victoria s secret coconut passion"
+      "victoria s secret coconut passion",
+      "coconut passion"
     ],
     "productId": "coconut",
     "productGender": "F"
@@ -4634,9 +4678,12 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "victoria's secret tease noir",
-      "tease noir",
       "victorias secret tease noir",
-      "victoria s secret tease noir"
+      "victoria s secret tease noir",
+      "tease noir",
+      "noir tease",
+      "victoria tease",
+      "victorias tease"
     ],
     "productId": "black-tease",
     "productGender": "F"
@@ -4644,7 +4691,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ysl black opium",
-      "black opium"
+      "black opium",
+      "black opium ysl",
+      "opium ysl"
     ],
     "productId": "blacko",
     "productGender": "F"
@@ -4652,7 +4701,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ysl mon paris",
-      "mon paris"
+      "mon paris",
+      "mon paris ysl"
     ],
     "productId": "paname",
     "productGender": "F"
@@ -4661,7 +4711,8 @@ export const DUPE_MAP = [
     "triggers": [
       "ysl libre",
       "libre",
-      "libre ysl"
+      "libre ysl",
+      "libre eau de parfum"
     ],
     "productId": "liberty",
     "productGender": "F"
@@ -4669,7 +4720,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ysl manifesto",
-      "manifesto"
+      "manifesto",
+      "manifesto ysl"
     ],
     "productId": "manife",
     "productGender": "F"
@@ -4693,7 +4745,10 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ajmal silk musc",
-      "silk musc"
+      "silk musc",
+      "silk",
+      "ajmal silk",
+      "silk musc ajmal"
     ],
     "productId": "silk",
     "productGender": "U"
@@ -4734,13 +4789,13 @@ export const DUPE_MAP = [
     "triggers": [
       "armani privé rose d'arabie",
       "armani prive rose d'arabie",
-      "rose d'arabie",
-      "rose darabie",
       "armani privé rose darabie",
       "armani prive rose darabie",
-      "rose d arabie",
       "armani privé rose d arabie",
-      "armani prive rose d arabie"
+      "armani prive rose d arabie",
+      "rose d'arabie",
+      "rose darabie",
+      "rose d arabie"
     ],
     "productId": "arabian-rose",
     "productGender": "U"
@@ -4749,7 +4804,8 @@ export const DUPE_MAP = [
     "triggers": [
       "armani privé rouge malachite",
       "armani prive rouge malachite",
-      "rouge malachite"
+      "rouge malachite",
+      "armani rouge malachite"
     ],
     "productId": "rouge-mala",
     "productGender": "U"
@@ -4822,7 +4878,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "byron the chronic",
-      "the chronic"
+      "the chronic",
+      "chronic"
     ],
     "productId": "gourmand-extreme",
     "productGender": "U"
@@ -4830,7 +4887,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "byron the chronic blue",
-      "the chronic blue"
+      "the chronic blue",
+      "chronic blue",
+      "the chronic bleu",
+      "chronic bleu",
+      "byron the chronic bleu"
     ],
     "productId": "sultan",
     "productGender": "U"
@@ -4887,11 +4948,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "dior bois d'argent",
+      "dior bois dargent",
+      "dior bois d argent",
       "bois d'argent",
       "bois dargent",
-      "dior bois dargent",
-      "bois d argent",
-      "dior bois d argent"
+      "bois d argent"
     ],
     "productId": "bois",
     "productGender": "U"
@@ -4939,7 +5000,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "dior la colle noire",
-      "la colle noire"
+      "la colle noire",
+      "colle noire"
     ],
     "productId": "colle",
     "productGender": "U"
@@ -4956,13 +5018,13 @@ export const DUPE_MAP = [
     "triggers": [
       "dubaï nectar d'or",
       "dubai nectar d'or",
-      "nectar d'or",
-      "nectar dor",
       "dubaï nectar dor",
       "dubai nectar dor",
-      "nectar d or",
       "dubaï nectar d or",
-      "dubai nectar d or"
+      "dubai nectar d or",
+      "nectar d'or",
+      "nectar dor",
+      "nectar d or"
     ],
     "productId": "nectar-d-or",
     "productGender": "U"
@@ -5038,7 +5100,8 @@ export const DUPE_MAP = [
       "br540",
       "br 540",
       "baccarat 540",
-      "rouge 540"
+      "rouge 540",
+      "baccarat rouge"
     ],
     "productId": "rouge-240",
     "productGender": "U"
@@ -5047,7 +5110,8 @@ export const DUPE_MAP = [
     "triggers": [
       "mfk baccarat intense",
       "baccarat intense",
-      "br540 intense"
+      "br540 intense",
+      "baccarat rouge intense"
     ],
     "productId": "rouge-240-intense",
     "productGender": "U"
@@ -5157,8 +5221,7 @@ export const DUPE_MAP = [
     "triggers": [
       "kayali vanilla 28",
       "vanilla 28",
-      "kayali 28 vanilla",
-      "vanilla 28 kayali"
+      "kayali 28 vanilla"
     ],
     "productId": "28-vanilla",
     "productGender": "U"
@@ -5198,11 +5261,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "kilian love, don't be shy",
+      "kilian love, dont be shy",
+      "kilian love, don t be shy",
       "love, don't be shy",
       "love, dont be shy",
-      "kilian love, dont be shy",
-      "love, don t be shy",
-      "kilian love, don t be shy"
+      "love, don t be shy"
     ],
     "productId": "love",
     "productGender": "U"
@@ -5218,7 +5281,10 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "kilian good girl gone bad extreme",
-      "good girl gone bad extreme"
+      "good girl gone bad extreme",
+      "good girl gone bad",
+      "gone bad extreme",
+      "kilian good girl gone bad"
     ],
     "productId": "gone-bad",
     "productGender": "U"
@@ -5226,11 +5292,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "kilian/lattafa angels' share",
+      "kilian/lattafa angels share",
+      "kilian/lattafa angels  share",
       "angels' share",
       "angels share",
-      "kilian/lattafa angels share",
-      "angels  share",
-      "kilian/lattafa angels  share"
+      "angels  share"
     ],
     "productId": "khamrah",
     "productGender": "U"
@@ -5305,8 +5371,7 @@ export const DUPE_MAP = [
     "triggers": [
       "louis vuitton ombre nomade",
       "ombre nomade",
-      "lv ombre nomade",
-      "ombre nomade lv"
+      "lv ombre nomade"
     ],
     "productId": "nomade",
     "productGender": "U"
@@ -5316,7 +5381,11 @@ export const DUPE_MAP = [
       "louis vuitton attrape-rêves",
       "louis vuitton attrape-reves",
       "attrape-rêves",
-      "attrape-reves"
+      "attrape-reves",
+      "attrape reves",
+      "attrape rêves",
+      "lv attrape reves",
+      "louis vuitton attrape reves"
     ],
     "productId": "my-dream",
     "productGender": "U"
@@ -5340,7 +5409,10 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "louis vuitton imagination",
-      "imagination"
+      "imagination",
+      "imagination louis vuitton",
+      "lv imagination",
+      "imagination lv"
     ],
     "productId": "imaginaire",
     "productGender": "U"
@@ -5348,7 +5420,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "louis vuitton les sables roses",
-      "les sables roses"
+      "les sables roses",
+      "sables roses"
     ],
     "productId": "la-rose-sable",
     "productGender": "U"
@@ -5357,14 +5430,18 @@ export const DUPE_MAP = [
     "triggers": [
       "louis vuitton l'immensité",
       "louis vuitton l'immensite",
+      "louis vuitton limmensité",
+      "louis vuitton limmensite",
+      "louis vuitton l immensité",
+      "louis vuitton l immensite",
       "l'immensité",
       "l'immensite",
       "limmensité",
       "limmensite",
-      "louis vuitton limmensité",
-      "louis vuitton limmensite",
       "l immensité",
-      "l immensite"
+      "l immensite",
+      "louis vuitton immensite",
+      "lv immensite"
     ],
     "productId": "immense",
     "productGender": "U"
@@ -5462,7 +5539,12 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "nobile 1942 la danza delle libellules",
-      "la danza delle libellules"
+      "la danza delle libellules",
+      "danza delle libellules",
+      "la danza delle libellule",
+      "danza delle libellule",
+      "danza libellule",
+      "nobile la danza"
     ],
     "productId": "first-class",
     "productGender": "U"
@@ -5504,7 +5586,9 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "prada uomo born in roma",
-      "uomo born in roma"
+      "uomo born in roma",
+      "born in roma prada",
+      "uomo born"
     ],
     "productId": "born-in-roma",
     "productGender": "U"
@@ -5520,7 +5604,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "rosendo mateu no. 5",
-      "no. 5"
+      "no. 5",
+      "rosendo mateu 5",
+      "rosendo mateu no 5",
+      "rosendo 5",
+      "rosendo no 5"
     ],
     "productId": "rs5",
     "productGender": "U"
@@ -5565,7 +5653,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "tiziana terenzi kirke",
-      "kirke"
+      "kirke",
+      "tiziana kirke"
     ],
     "productId": "casanova",
     "productGender": "U"
@@ -5573,7 +5662,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "tom ford lost cherry",
-      "lost cherry"
+      "lost cherry",
+      "tf lost cherry"
     ],
     "productId": "cherry",
     "productGender": "U"
@@ -5589,7 +5679,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "tom ford fucking fabulous",
-      "fucking fabulous"
+      "fucking fabulous",
+      "tf fabulous"
     ],
     "productId": "fabulous",
     "productGender": "U"
@@ -5607,8 +5698,7 @@ export const DUPE_MAP = [
       "tom ford ombré leather",
       "tom ford ombre leather",
       "ombré leather",
-      "ombre leather",
-      "tuscan leather"
+      "ombre leather"
     ],
     "productId": "leather",
     "productGender": "U"
@@ -5616,7 +5706,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "tom ford tobacco vanille",
-      "tobacco vanille"
+      "tobacco vanille",
+      "tf tobacco"
     ],
     "productId": "tobacco",
     "productGender": "U"
@@ -5624,7 +5715,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "xerjoff erba pura",
-      "erba pura"
+      "erba pura",
+      "erba pura xerjoff"
     ],
     "productId": "erbaggi",
     "productGender": "U"
@@ -5640,7 +5732,8 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "ulyka nota sugar",
-      "nota sugar"
+      "nota sugar",
+      "nota sugar ulyka"
     ],
     "productId": "l-addiction",
     "productGender": "U"
@@ -5656,11 +5749,11 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "van cleef & arpels bois d'iris",
+      "van cleef & arpels bois diris",
+      "van cleef & arpels bois d iris",
       "bois d'iris",
       "bois diris",
-      "van cleef & arpels bois diris",
-      "bois d iris",
-      "van cleef & arpels bois d iris"
+      "bois d iris"
     ],
     "productId": "bois-d-iris",
     "productGender": "U"
