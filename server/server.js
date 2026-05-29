@@ -65,7 +65,7 @@ if (!process.env.OPENAI_API_KEY) {
 /* ─── Tool definition — built per-request so product_ids enum matches the
  *     LIVE DB catalog. New products added in the admin panel become valid
  *     recommendations on the very next chat turn.                          */
-function buildReplyTool(productIdEnum) {
+function buildReplyTool(productIdEnum, maxProducts = 8) {
   const ids = productIdEnum && productIdEnum.length > 0 ? productIdEnum : inStockIds();
   return {
     type: 'function',
@@ -82,7 +82,7 @@ function buildReplyTool(productIdEnum) {
             enum: ['welcome','discovery','pitch','objection','upsell','close','lead-capture','escalation','smalltalk','faq','out-of-stock'],
           },
           product_ids: {
-            type: 'array', maxItems: 3,
+            type: 'array', maxItems: maxProducts,
             items: { type: 'string', enum: ids },
           },
           quick_replies: {
@@ -252,7 +252,7 @@ function normalizeReply(raw) {
   return {
     reply: typeof raw?.reply === 'string' ? raw.reply.trim() : '',
     intent: typeof raw?.intent === 'string' ? raw.intent : 'smalltalk',
-    product_ids: safeArr(raw?.product_ids).slice(0, 3),
+    product_ids: safeArr(raw?.product_ids).slice(0, 8),
     quick_replies: safeArr(raw?.quick_replies)
       .slice(0, 4)
       .map((q) => ({
@@ -365,7 +365,10 @@ app.post('/api/chat', async (req, res) => {
     // open so the model can pick a same-gender alternative.
     const strictLock = Boolean(routingInfo?.productId && !routingInfo.genderConflict);
     const enumIds = strictLock ? [routingInfo.productId] : liveProductIds;
-    const REPLY_TOOL_DYNAMIC = buildReplyTool(enumIds);
+    // Strict brand match → exactly 1 product. Discovery / season / family
+    // browse → up to 8 so "parfums pour l'été" returns a real shortlist,
+    // not just 2-3.
+    const REPLY_TOOL_DYNAMIC = buildReplyTool(enumIds, strictLock ? 1 : 8);
     try {
       const { client, config } = await getOpenAI();
       modelUsed = config.model;

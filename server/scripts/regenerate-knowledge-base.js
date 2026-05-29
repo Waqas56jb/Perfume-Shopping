@@ -101,6 +101,12 @@ function buildTriggers(it) {
    these even if the customer omits the brand. Indexed by code_site.
    Also covers every routing failure the client reported on 2026-05-26. */
 const EXTRA_TRIGGERS = {
+  /* — Client-reported failure 2026-05-29 (Bvlgari Tygar) — */
+  // Customer types phonetic / mis-spelled forms: "Tigar Bulgaria",
+  // "Tygar Bulgari", etc. Without these the router missed it and the
+  // model hallucinated GREATNESS.
+  'TYGAR':             ['tygar', 'tigar', 'bvlgari tygar', 'bulgari tygar', 'bulgaria tygar', 'tygar bvlgari', 'tygar bulgari', 'tigar bulgaria', 'tigar bulgarie', 'tigar bulgari', 'bvlgari tigar'],
+
   /* — Client-reported failures 2026-05-29 (women's section) — */
   // JPG Scandal Pour Homme (H) vs JPG Scandal Absolu (F) — must not collide.
   // Customer types French "Scandale" (with -e) as well as "Scandal".

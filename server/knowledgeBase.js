@@ -4865,7 +4865,16 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "bvlgari tygar",
-      "tygar"
+      "tygar",
+      "tigar",
+      "bulgari tygar",
+      "bulgaria tygar",
+      "tygar bvlgari",
+      "tygar bulgari",
+      "tigar bulgaria",
+      "tigar bulgarie",
+      "tigar bulgari",
+      "bvlgari tigar"
     ],
     "productId": "tygar",
     "productGender": "U"

@@ -30,6 +30,10 @@ const cases = [
   ['Soleil Neige', 'NEIGE'],
   ['Erba Pura', 'ERBAGGI'],
   ['Nota Sugar', "L'ADDICTION"],
+  // Client 2026-05-29 (Bvlgari Tygar misspellings)
+  ['Tigar Bulgaria', 'TYGAR'],
+  ['Tygar Bulgari', 'TYGAR'],
+  ['Tygar', 'TYGAR'],
   // Baseline regressions
   ['Baccarat Rouge 540', 'ROUGE 240'],
   ['Le Male JPG', 'VIRIL'],
