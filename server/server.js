@@ -359,16 +359,25 @@ app.post('/api/chat', async (req, res) => {
        Alien → ILLICITE, etc.). This is the strongest mechanism against
        hallucination — even with temperature > 0 it can no longer drift. */
     let completion, modelUsed = null;
-    const enumIds = routingInfo?.productId
-      ? [routingInfo.productId]
-      : liveProductIds;
+    // Lock the enum to the single routed slug ONLY when there's no gender
+    // conflict. On a conflict (customer asked for a men's perfume but
+    // mentioned a women's brand, or vice-versa) we leave the full catalog
+    // open so the model can pick a same-gender alternative.
+    const strictLock = Boolean(routingInfo?.productId && !routingInfo.genderConflict);
+    const enumIds = strictLock ? [routingInfo.productId] : liveProductIds;
     const REPLY_TOOL_DYNAMIC = buildReplyTool(enumIds);
     try {
       const { client, config } = await getOpenAI();
       modelUsed = config.model;
+      // STRICT MAPPING determinism: when the router resolved a famous
+      // brand to a specific product, force temperature 0 for THIS call —
+      // regardless of any custom temperature the admin saved in settings.
+      // This is what stops "Black Opium → BLACKO one session, → TOXIC
+      // GIRL the next". Free-form discovery turns keep the configured temp.
+      const effectiveTemp = routingInfo?.productId ? 0 : config.temperature;
       completion = await client.chat.completions.create({
         model: config.model,
-        temperature: config.temperature,
+        temperature: effectiveTemp,
         max_tokens: config.maxTokens,
         messages,
         tools: [REPLY_TOOL_DYNAMIC],
@@ -392,6 +401,18 @@ app.post('/api/chat', async (req, res) => {
     const assistantMsg = completion.choices?.[0]?.message;
     let normalized = normalizeReply(parseToolCall(assistantMsg?.tool_calls) || {});
     if (!normalized.reply) normalized = { ...fallbackReply() };
+
+    /* STRICT MAPPING — server-side guarantee. When the router resolved a
+       famous-brand query to a specific Eleganza product, the recommended
+       product CARD is forced to that exact slug no matter what the model
+       returned. The model can phrase the reply however it likes, but the
+       structured recommendation the customer sees + the lead the admin
+       gets are always the correct, hand-verified mapping. This removes
+       the last hallucination surface (LLM naming a "close" product in the
+       product_ids array). */
+    if (strictLock) {
+      normalized.product_ids = [routingInfo.productId];
+    }
 
     /* Safety net — redact any forbidden term that slipped through */
     const { text: cleanReply, redacted } = redactForbidden(normalized.reply);
