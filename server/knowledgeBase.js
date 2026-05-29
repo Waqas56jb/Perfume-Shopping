@@ -4193,7 +4193,12 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "jpg scandal pour homme",
-      "scandal pour homme"
+      "scandal pour homme",
+      "scandale pour homme",
+      "scandal homme",
+      "scandale homme",
+      "jpg scandale pour homme",
+      "scandal pour homme jpg"
     ],
     "productId": "scandal",
     "productGender": "H"
@@ -4522,7 +4527,13 @@ export const DUPE_MAP = [
   {
     "triggers": [
       "jpg scandal absolu",
-      "scandal absolu"
+      "scandal absolu",
+      "scandale absolu",
+      "jpg scandale absolu",
+      "scandal absolu femme",
+      "scandale absolu femme",
+      "scandal absolu pour femme",
+      "scandale absolu pour femme"
     ],
     "productId": "s-absolu",
     "productGender": "F"

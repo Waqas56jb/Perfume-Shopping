@@ -101,8 +101,14 @@ function buildTriggers(it) {
    these even if the customer omits the brand. Indexed by code_site.
    Also covers every routing failure the client reported on 2026-05-26. */
 const EXTRA_TRIGGERS = {
+  /* — Client-reported failures 2026-05-29 (women's section) — */
+  // JPG Scandal Pour Homme (H) vs JPG Scandal Absolu (F) — must not collide.
+  // Customer types French "Scandale" (with -e) as well as "Scandal".
+  'S.ABSOLU':          ['scandal absolu', 'scandale absolu', 'jpg scandal absolu', 'jpg scandale absolu', 'scandal absolu femme', 'scandale absolu femme', 'scandal absolu pour femme', 'scandale absolu pour femme'],
+  'SCANDAL':           ['scandal pour homme', 'scandale pour homme', 'scandal homme', 'scandale homme', 'jpg scandal pour homme', 'jpg scandale pour homme', 'scandal pour homme jpg'],
+
   /* — Client-reported failures 2026-05-26 — */
-  'DIAMANT NOIR':      ['nuit tresor', 'nuit trésor', 'lancome nuit tresor', 'lancôme nuit trésor'],
+  'DIAMANT NOIR':      ['nuit tresor', 'nuit trésor', 'la nuit tresor', 'la nuit trésor', 'lancome nuit tresor', 'lancôme nuit trésor', 'lancome la nuit tresor'],
   'LADY':              ['lady million', 'paco lady million', 'rabanne lady million'],
   'FAMING':            ['paco fame', 'rabanne fame', 'fame paco', 'fame rabanne'],
   'NEILA':             ['mugler alien', 'alien mugler'],
